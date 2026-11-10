@@ -1,0 +1,2874 @@
+{
+ "name": "BasketWise Market",
+ "currency": "EGP",
+ "grid": {
+  "w": 42,
+  "h": 22,
+  "tile": 36,
+  "cost": [
+   "000000000000000000000000000000000000000000",
+   "000000000100000000001000001000001000000000",
+   "000000000100000000001000001000001000000000",
+   "011111111111111111111111111111111111111110",
+   "011111111111111111111111111111111111111110",
+   "011100000011110000011110000011110000111110",
+   "011100000011110000011110000011110000111110",
+   "011111111166661111111111111111111111111110",
+   "011111111166661111111111111111111111111110",
+   "011110000111111110000111111110000111111110",
+   "011110000111111110000111111110000111111110",
+   "011111111111111113333111110111111111111110",
+   "001111111111111111111111111111111111111100",
+   "011111111111011111111111111110111111111110",
+   "011111111111111111111111111333111111111110",
+   "011111111111111111111111111333000000011110",
+   "011111111111000011111111111333111111111110",
+   "022222111111000011100001111333111111111110",
+   "022222111111111111100001111333000000011110",
+   "022222000111111111111111111333111111111110",
+   "022222000001111111111111111111111111111110",
+   "000000000000000000000000000000000000000000"
+  ]
+ },
+ "entrance": {
+  "x": 3,
+  "y": 20
+ },
+ "checkout": {
+  "x": 30,
+  "y": 16
+ },
+ "categories": [
+  {
+   "id": "bakery",
+   "en": "Bakery",
+   "ar": "المخبوزات",
+   "color": "#E0A458"
+  },
+  {
+   "id": "dairy",
+   "en": "Dairy & Eggs",
+   "ar": "الألبان والبيض",
+   "color": "#5DA9E9"
+  },
+  {
+   "id": "meat",
+   "en": "Meat & Fish",
+   "ar": "اللحوم والأسماك",
+   "color": "#D9534F"
+  },
+  {
+   "id": "frozen",
+   "en": "Frozen",
+   "ar": "المجمدات",
+   "color": "#6FCBE6"
+  },
+  {
+   "id": "drinks",
+   "en": "Drinks",
+   "ar": "المشروبات",
+   "color": "#2FB5A6"
+  },
+  {
+   "id": "produce",
+   "en": "Fruit & Veg",
+   "ar": "خضار وفاكهة",
+   "color": "#6BBF59"
+  },
+  {
+   "id": "grocery",
+   "en": "Grocery",
+   "ar": "البقالة",
+   "color": "#C98B4A"
+  },
+  {
+   "id": "snacks",
+   "en": "Snacks & Sweets",
+   "ar": "سناكس وحلويات",
+   "color": "#F26CA7"
+  },
+  {
+   "id": "household",
+   "en": "Household & Care",
+   "ar": "المنظفات والعناية",
+   "color": "#7C6FD6"
+  }
+ ],
+ "tags": [
+  "staple",
+  "healthy",
+  "sweet",
+  "protein",
+  "budget",
+  "premium",
+  "egyptian",
+  "breakfast",
+  "fresh",
+  "frozen",
+  "household",
+  "family",
+  "kids"
+ ],
+ "fixtures": [
+  {
+   "id": "wall-bakery",
+   "kind": "wall",
+   "category": "bakery",
+   "x": 1,
+   "y": 1,
+   "w": 8,
+   "h": 2
+  },
+  {
+   "id": "wall-dairy",
+   "kind": "wall",
+   "category": "dairy",
+   "x": 10,
+   "y": 1,
+   "w": 10,
+   "h": 2
+  },
+  {
+   "id": "wall-meat",
+   "kind": "wall",
+   "category": "meat",
+   "x": 21,
+   "y": 1,
+   "w": 5,
+   "h": 2
+  },
+  {
+   "id": "wall-frozen",
+   "kind": "wall",
+   "category": "frozen",
+   "x": 27,
+   "y": 1,
+   "w": 5,
+   "h": 2
+  },
+  {
+   "id": "wall-drinks",
+   "kind": "wall",
+   "category": "drinks",
+   "x": 33,
+   "y": 1,
+   "w": 8,
+   "h": 2
+  },
+  {
+   "id": "gondola-grocery-1",
+   "kind": "gondola",
+   "x": 4,
+   "y": 5,
+   "w": 6,
+   "h": 2,
+   "topCount": 6,
+   "botCount": 6,
+   "category": "grocery"
+  },
+  {
+   "id": "gondola-grocery-2",
+   "kind": "gondola",
+   "x": 14,
+   "y": 5,
+   "w": 5,
+   "h": 2,
+   "topCount": 5,
+   "botCount": 5,
+   "category": "grocery"
+  },
+  {
+   "id": "gondola-snacks",
+   "kind": "gondola",
+   "x": 23,
+   "y": 5,
+   "w": 5,
+   "h": 2,
+   "topCount": 5,
+   "botCount": 5,
+   "category": "snacks"
+  },
+  {
+   "id": "gondola-household",
+   "kind": "gondola",
+   "x": 32,
+   "y": 5,
+   "w": 4,
+   "h": 2,
+   "topCount": 4,
+   "botCount": 4,
+   "category": "household"
+  },
+  {
+   "id": "island-produce",
+   "kind": "island",
+   "x": 17,
+   "y": 9,
+   "w": 4,
+   "h": 2,
+   "topCount": 4,
+   "botCount": 4,
+   "category": "produce"
+  }
+ ],
+ "signs": [
+  {
+   "fixture": "wall-bakery",
+   "category": "bakery",
+   "x": 1,
+   "y": 0,
+   "w": 8,
+   "en": "Bakery",
+   "ar": "المخبوزات",
+   "color": "#E0A458"
+  },
+  {
+   "fixture": "wall-dairy",
+   "category": "dairy",
+   "x": 10,
+   "y": 0,
+   "w": 10,
+   "en": "Dairy & Eggs",
+   "ar": "الألبان والبيض",
+   "color": "#5DA9E9"
+  },
+  {
+   "fixture": "wall-meat",
+   "category": "meat",
+   "x": 21,
+   "y": 0,
+   "w": 5,
+   "en": "Meat & Fish",
+   "ar": "اللحوم والأسماك",
+   "color": "#D9534F"
+  },
+  {
+   "fixture": "wall-frozen",
+   "category": "frozen",
+   "x": 27,
+   "y": 0,
+   "w": 5,
+   "en": "Frozen",
+   "ar": "المجمدات",
+   "color": "#6FCBE6"
+  },
+  {
+   "fixture": "wall-drinks",
+   "category": "drinks",
+   "x": 33,
+   "y": 0,
+   "w": 8,
+   "en": "Drinks",
+   "ar": "المشروبات",
+   "color": "#2FB5A6"
+  },
+  {
+   "fixture": "gondola-grocery-1",
+   "category": "grocery",
+   "x": 4,
+   "y": 4,
+   "w": 6,
+   "en": "Grocery",
+   "ar": "البقالة",
+   "color": "#C98B4A",
+   "hanging": true
+  },
+  {
+   "fixture": "gondola-grocery-2",
+   "category": "grocery",
+   "x": 14,
+   "y": 4,
+   "w": 5,
+   "en": "Grocery",
+   "ar": "البقالة",
+   "color": "#C98B4A",
+   "hanging": true
+  },
+  {
+   "fixture": "gondola-snacks",
+   "category": "snacks",
+   "x": 23,
+   "y": 4,
+   "w": 5,
+   "en": "Snacks & Sweets",
+   "ar": "سناكس وحلويات",
+   "color": "#F26CA7",
+   "hanging": true
+  },
+  {
+   "fixture": "gondola-household",
+   "category": "household",
+   "x": 32,
+   "y": 4,
+   "w": 4,
+   "en": "Household & Care",
+   "ar": "المنظفات والعناية",
+   "color": "#7C6FD6",
+   "hanging": true
+  },
+  {
+   "fixture": "island-produce",
+   "category": "produce",
+   "x": 17,
+   "y": 8,
+   "w": 4,
+   "en": "Fruit & Veg",
+   "ar": "خضار وفاكهة",
+   "color": "#6BBF59",
+   "hanging": true
+  }
+ ],
+ "deco": [
+  {
+   "type": "pallet-water",
+   "x": 5,
+   "y": 9,
+   "w": 4,
+   "h": 2
+  },
+  {
+   "type": "promo-stand",
+   "x": 29,
+   "y": 9,
+   "w": 4,
+   "h": 2
+  },
+  {
+   "type": "pillar",
+   "x": 12,
+   "y": 13,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "pillar",
+   "x": 29,
+   "y": 13,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "plant",
+   "x": 1,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "plant",
+   "x": 40,
+   "y": 12,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "plant",
+   "x": 10,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "cart-park",
+   "x": 6,
+   "y": 19,
+   "w": 3,
+   "h": 2
+  },
+  {
+   "type": "basket-stack",
+   "x": 9,
+   "y": 20,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "promo-stand",
+   "x": 12,
+   "y": 16,
+   "w": 4,
+   "h": 2
+  },
+  {
+   "type": "pallet-water",
+   "x": 19,
+   "y": 17,
+   "w": 4,
+   "h": 2
+  },
+  {
+   "type": "plant",
+   "x": 26,
+   "y": 11,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "checkout-lane",
+   "x": 30,
+   "y": 15,
+   "w": 6,
+   "h": 1
+  },
+  {
+   "type": "cashier-kiosk",
+   "x": 36,
+   "y": 15,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "checkout-lane",
+   "x": 30,
+   "y": 18,
+   "w": 6,
+   "h": 1
+  },
+  {
+   "type": "cashier-kiosk",
+   "x": 36,
+   "y": 18,
+   "w": 1,
+   "h": 1
+  },
+  {
+   "type": "entrance-door",
+   "x": 2,
+   "y": 21,
+   "w": 3,
+   "h": 1
+  },
+  {
+   "type": "doormat",
+   "x": 2,
+   "y": 19,
+   "w": 3,
+   "h": 2
+  },
+  {
+   "type": "wet-floor",
+   "x": 10,
+   "y": 7,
+   "w": 4,
+   "h": 2
+  },
+  {
+   "type": "queue-zone",
+   "x": 27,
+   "y": 14,
+   "w": 3,
+   "h": 6
+  },
+  {
+   "type": "crowd-zone",
+   "x": 17,
+   "y": 11,
+   "w": 4,
+   "h": 1
+  }
+ ],
+ "products": [
+  {
+   "id": 1,
+   "sku": "P001",
+   "category": "bakery",
+   "slug": "baladi-bread",
+   "en": "Baladi Bread (5 loaves)",
+   "ar": "عيش بلدي (5 أرغفة)",
+   "price": 10,
+   "rating": 4.6,
+   "popularity": 98,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "egyptian",
+    "budget",
+    "breakfast"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 0,
+   "shelf": {
+    "x": 1,
+    "y": 2
+   },
+   "pickup": {
+    "x": 1,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 2,
+   "sku": "P002",
+   "category": "bakery",
+   "slug": "fino-bread",
+   "en": "Fino Bread Rolls",
+   "ar": "عيش فينو",
+   "price": 14,
+   "rating": 4.2,
+   "popularity": 80,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "breakfast",
+    "budget"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 1,
+   "shelf": {
+    "x": 2,
+    "y": 2
+   },
+   "pickup": {
+    "x": 2,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 3,
+   "sku": "P003",
+   "category": "bakery",
+   "slug": "toast-bread",
+   "en": "Sliced Toast Bread",
+   "ar": "توست شرائح",
+   "price": 38,
+   "rating": 4.3,
+   "popularity": 78,
+   "discount": 10,
+   "tags": [
+    "breakfast",
+    "family"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 2,
+   "shelf": {
+    "x": 3,
+    "y": 2
+   },
+   "pickup": {
+    "x": 3,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 4,
+   "sku": "P004",
+   "category": "bakery",
+   "slug": "croissant",
+   "en": "Butter Croissant",
+   "ar": "كرواسون بالزبدة",
+   "price": 18,
+   "rating": 4.5,
+   "popularity": 70,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "breakfast",
+    "premium"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 3,
+   "shelf": {
+    "x": 4,
+    "y": 2
+   },
+   "pickup": {
+    "x": 4,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 5,
+   "sku": "P005",
+   "category": "bakery",
+   "slug": "cake-slice",
+   "en": "Sponge Cake",
+   "ar": "كيك إسفنجي",
+   "price": 15,
+   "rating": 4,
+   "popularity": 65,
+   "discount": 5,
+   "tags": [
+    "sweet",
+    "kids",
+    "budget"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 4,
+   "shelf": {
+    "x": 5,
+    "y": 2
+   },
+   "pickup": {
+    "x": 5,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 6,
+   "sku": "P006",
+   "category": "bakery",
+   "slug": "basbousa",
+   "en": "Basbousa Tray",
+   "ar": "بسبوسة",
+   "price": 55,
+   "rating": 4.7,
+   "popularity": 60,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "egyptian",
+    "premium"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 5,
+   "shelf": {
+    "x": 6,
+    "y": 2
+   },
+   "pickup": {
+    "x": 6,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 7,
+   "sku": "P007",
+   "category": "bakery",
+   "slug": "sesame-ring",
+   "en": "Sesame Bread Rings",
+   "ar": "سميط",
+   "price": 12,
+   "rating": 4.4,
+   "popularity": 62,
+   "discount": 0,
+   "tags": [
+    "breakfast",
+    "egyptian",
+    "budget"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 6,
+   "shelf": {
+    "x": 7,
+    "y": 2
+   },
+   "pickup": {
+    "x": 7,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 8,
+   "sku": "P008",
+   "category": "bakery",
+   "slug": "maamoul",
+   "en": "Date Maamoul",
+   "ar": "معمول بالتمر",
+   "price": 45,
+   "rating": 4.6,
+   "popularity": 55,
+   "discount": 15,
+   "tags": [
+    "sweet",
+    "egyptian",
+    "premium"
+   ],
+   "fixture": "wall-bakery",
+   "side": "wall",
+   "slot": 7,
+   "shelf": {
+    "x": 8,
+    "y": 2
+   },
+   "pickup": {
+    "x": 8,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 9,
+   "sku": "P009",
+   "category": "dairy",
+   "slug": "milk-full",
+   "en": "Full Cream Milk 1L",
+   "ar": "لبن كامل الدسم 1 لتر",
+   "price": 42,
+   "rating": 4.5,
+   "popularity": 95,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "protein",
+    "breakfast",
+    "family"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 0,
+   "shelf": {
+    "x": 10,
+    "y": 2
+   },
+   "pickup": {
+    "x": 10,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 10,
+   "sku": "P010",
+   "category": "dairy",
+   "slug": "milk-skim",
+   "en": "Skimmed Milk 1L",
+   "ar": "لبن خالي الدسم",
+   "price": 44,
+   "rating": 4.1,
+   "popularity": 55,
+   "discount": 0,
+   "tags": [
+    "healthy",
+    "protein"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 1,
+   "shelf": {
+    "x": 11,
+    "y": 2
+   },
+   "pickup": {
+    "x": 11,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 11,
+   "sku": "P011",
+   "category": "dairy",
+   "slug": "milk-choco",
+   "en": "Chocolate Milk",
+   "ar": "لبن بالشوكولاتة",
+   "price": 14,
+   "rating": 4.2,
+   "popularity": 66,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "kids"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 2,
+   "shelf": {
+    "x": 12,
+    "y": 2
+   },
+   "pickup": {
+    "x": 12,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 12,
+   "sku": "P012",
+   "category": "dairy",
+   "slug": "yogurt",
+   "en": "Plain Yogurt Cups",
+   "ar": "زبادي سادة",
+   "price": 12,
+   "rating": 4.4,
+   "popularity": 85,
+   "discount": 0,
+   "tags": [
+    "healthy",
+    "breakfast",
+    "protein"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 3,
+   "shelf": {
+    "x": 13,
+    "y": 2
+   },
+   "pickup": {
+    "x": 13,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 13,
+   "sku": "P013",
+   "category": "dairy",
+   "slug": "yogurt-fruit",
+   "en": "Fruit Yogurt",
+   "ar": "زبادي بالفاكهة",
+   "price": 15,
+   "rating": 4.3,
+   "popularity": 68,
+   "discount": 10,
+   "tags": [
+    "sweet",
+    "kids"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 4,
+   "shelf": {
+    "x": 14,
+    "y": 2
+   },
+   "pickup": {
+    "x": 14,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 14,
+   "sku": "P014",
+   "category": "dairy",
+   "slug": "white-cheese",
+   "en": "White Cheese 500g",
+   "ar": "جبنة بيضاء",
+   "price": 78,
+   "rating": 4.6,
+   "popularity": 92,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "egyptian",
+    "protein",
+    "breakfast"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 5,
+   "shelf": {
+    "x": 15,
+    "y": 2
+   },
+   "pickup": {
+    "x": 15,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 15,
+   "sku": "P015",
+   "category": "dairy",
+   "slug": "rumi-cheese",
+   "en": "Rumi Cheese",
+   "ar": "جبنة رومي",
+   "price": 150,
+   "rating": 4.5,
+   "popularity": 58,
+   "discount": 0,
+   "tags": [
+    "premium",
+    "protein",
+    "egyptian"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 6,
+   "shelf": {
+    "x": 16,
+    "y": 2
+   },
+   "pickup": {
+    "x": 16,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 16,
+   "sku": "P016",
+   "category": "dairy",
+   "slug": "butter",
+   "en": "Butter Block",
+   "ar": "زبدة",
+   "price": 64,
+   "rating": 4.4,
+   "popularity": 60,
+   "discount": 5,
+   "tags": [
+    "breakfast",
+    "premium"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 7,
+   "shelf": {
+    "x": 17,
+    "y": 2
+   },
+   "pickup": {
+    "x": 17,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 17,
+   "sku": "P017",
+   "category": "dairy",
+   "slug": "eggs",
+   "en": "Eggs Carton (12)",
+   "ar": "بيض (12 بيضة)",
+   "price": 68,
+   "rating": 4.5,
+   "popularity": 90,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "protein",
+    "breakfast",
+    "healthy"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 8,
+   "shelf": {
+    "x": 18,
+    "y": 2
+   },
+   "pickup": {
+    "x": 18,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 18,
+   "sku": "P018",
+   "category": "dairy",
+   "slug": "cheese-triangles",
+   "en": "Cream Cheese Triangles",
+   "ar": "جبنة مثلثات",
+   "price": 26,
+   "rating": 4.3,
+   "popularity": 82,
+   "discount": 0,
+   "tags": [
+    "kids",
+    "breakfast",
+    "budget"
+   ],
+   "fixture": "wall-dairy",
+   "side": "wall",
+   "slot": 9,
+   "shelf": {
+    "x": 19,
+    "y": 2
+   },
+   "pickup": {
+    "x": 19,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 19,
+   "sku": "P019",
+   "category": "meat",
+   "slug": "chicken",
+   "en": "Fresh Chicken 1kg",
+   "ar": "فراخ طازجة 1 كجم",
+   "price": 125,
+   "rating": 4.4,
+   "popularity": 88,
+   "discount": 0,
+   "tags": [
+    "protein",
+    "staple",
+    "family"
+   ],
+   "fixture": "wall-meat",
+   "side": "wall",
+   "slot": 0,
+   "shelf": {
+    "x": 21,
+    "y": 2
+   },
+   "pickup": {
+    "x": 21,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 20,
+   "sku": "P020",
+   "category": "meat",
+   "slug": "beef",
+   "en": "Beef Cuts 500g",
+   "ar": "لحمة بقري 500 جم",
+   "price": 210,
+   "rating": 4.5,
+   "popularity": 70,
+   "discount": 0,
+   "tags": [
+    "protein",
+    "premium"
+   ],
+   "fixture": "wall-meat",
+   "side": "wall",
+   "slot": 1,
+   "shelf": {
+    "x": 22,
+    "y": 2
+   },
+   "pickup": {
+    "x": 22,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 21,
+   "sku": "P021",
+   "category": "meat",
+   "slug": "minced-meat",
+   "en": "Minced Meat 500g",
+   "ar": "لحمة مفرومة 500 جم",
+   "price": 180,
+   "rating": 4.3,
+   "popularity": 74,
+   "discount": 5,
+   "tags": [
+    "protein",
+    "family"
+   ],
+   "fixture": "wall-meat",
+   "side": "wall",
+   "slot": 2,
+   "shelf": {
+    "x": 23,
+    "y": 2
+   },
+   "pickup": {
+    "x": 23,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 22,
+   "sku": "P022",
+   "category": "meat",
+   "slug": "fish",
+   "en": "Fresh Tilapia 1kg",
+   "ar": "سمك بلطي 1 كجم",
+   "price": 95,
+   "rating": 4.2,
+   "popularity": 66,
+   "discount": 0,
+   "tags": [
+    "protein",
+    "healthy"
+   ],
+   "fixture": "wall-meat",
+   "side": "wall",
+   "slot": 3,
+   "shelf": {
+    "x": 24,
+    "y": 2
+   },
+   "pickup": {
+    "x": 24,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 23,
+   "sku": "P023",
+   "category": "meat",
+   "slug": "liver",
+   "en": "Beef Liver 500g",
+   "ar": "كبدة 500 جم",
+   "price": 150,
+   "rating": 4.1,
+   "popularity": 50,
+   "discount": 10,
+   "tags": [
+    "protein",
+    "egyptian"
+   ],
+   "fixture": "wall-meat",
+   "side": "wall",
+   "slot": 4,
+   "shelf": {
+    "x": 25,
+    "y": 2
+   },
+   "pickup": {
+    "x": 25,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 24,
+   "sku": "P024",
+   "category": "frozen",
+   "slug": "ice-cream",
+   "en": "Ice Cream Tub",
+   "ar": "آيس كريم",
+   "price": 48,
+   "rating": 4.7,
+   "popularity": 78,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "kids",
+    "frozen"
+   ],
+   "fixture": "wall-frozen",
+   "side": "wall",
+   "slot": 0,
+   "shelf": {
+    "x": 27,
+    "y": 2
+   },
+   "pickup": {
+    "x": 27,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 25,
+   "sku": "P025",
+   "category": "frozen",
+   "slug": "molokhia",
+   "en": "Frozen Molokhia",
+   "ar": "ملوخية مجمدة",
+   "price": 28,
+   "rating": 4.4,
+   "popularity": 76,
+   "discount": 0,
+   "tags": [
+    "egyptian",
+    "frozen",
+    "healthy",
+    "staple"
+   ],
+   "fixture": "wall-frozen",
+   "side": "wall",
+   "slot": 1,
+   "shelf": {
+    "x": 28,
+    "y": 2
+   },
+   "pickup": {
+    "x": 28,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 26,
+   "sku": "P026",
+   "category": "frozen",
+   "slug": "frozen-peas",
+   "en": "Frozen Peas",
+   "ar": "بسلة مجمدة",
+   "price": 26,
+   "rating": 4.1,
+   "popularity": 60,
+   "discount": 0,
+   "tags": [
+    "healthy",
+    "frozen",
+    "budget"
+   ],
+   "fixture": "wall-frozen",
+   "side": "wall",
+   "slot": 2,
+   "shelf": {
+    "x": 29,
+    "y": 2
+   },
+   "pickup": {
+    "x": 29,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 27,
+   "sku": "P027",
+   "category": "frozen",
+   "slug": "french-fries",
+   "en": "Frozen French Fries",
+   "ar": "بطاطس مجمدة",
+   "price": 55,
+   "rating": 4.3,
+   "popularity": 72,
+   "discount": 10,
+   "tags": [
+    "kids",
+    "frozen",
+    "family"
+   ],
+   "fixture": "wall-frozen",
+   "side": "wall",
+   "slot": 3,
+   "shelf": {
+    "x": 30,
+    "y": 2
+   },
+   "pickup": {
+    "x": 30,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 28,
+   "sku": "P028",
+   "category": "frozen",
+   "slug": "frozen-okra",
+   "en": "Frozen Okra",
+   "ar": "بامية مجمدة",
+   "price": 30,
+   "rating": 4.2,
+   "popularity": 58,
+   "discount": 0,
+   "tags": [
+    "egyptian",
+    "frozen",
+    "healthy"
+   ],
+   "fixture": "wall-frozen",
+   "side": "wall",
+   "slot": 4,
+   "shelf": {
+    "x": 31,
+    "y": 2
+   },
+   "pickup": {
+    "x": 31,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 29,
+   "sku": "P029",
+   "category": "drinks",
+   "slug": "water-pack",
+   "en": "Mineral Water 6-pack",
+   "ar": "مياه معدنية 6 زجاجات",
+   "price": 42,
+   "rating": 4.6,
+   "popularity": 96,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "healthy"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 0,
+   "shelf": {
+    "x": 33,
+    "y": 2
+   },
+   "pickup": {
+    "x": 33,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 30,
+   "sku": "P030",
+   "category": "drinks",
+   "slug": "orange-juice",
+   "en": "Orange Juice 1L",
+   "ar": "عصير برتقال",
+   "price": 32,
+   "rating": 4.2,
+   "popularity": 80,
+   "discount": 0,
+   "tags": [
+    "breakfast",
+    "sweet",
+    "kids"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 1,
+   "shelf": {
+    "x": 34,
+    "y": 2
+   },
+   "pickup": {
+    "x": 34,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 31,
+   "sku": "P031",
+   "category": "drinks",
+   "slug": "mango-juice",
+   "en": "Mango Juice 1L",
+   "ar": "عصير مانجو",
+   "price": 32,
+   "rating": 4.3,
+   "popularity": 78,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "kids"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 2,
+   "shelf": {
+    "x": 35,
+    "y": 2
+   },
+   "pickup": {
+    "x": 35,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 32,
+   "sku": "P032",
+   "category": "drinks",
+   "slug": "cola",
+   "en": "Cola 1L",
+   "ar": "مشروب غازي",
+   "price": 22,
+   "rating": 4,
+   "popularity": 90,
+   "discount": 0,
+   "tags": [
+    "sweet"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 3,
+   "shelf": {
+    "x": 36,
+    "y": 2
+   },
+   "pickup": {
+    "x": 36,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 33,
+   "sku": "P033",
+   "category": "drinks",
+   "slug": "energy-drink",
+   "en": "Energy Drink Can",
+   "ar": "مشروب طاقة",
+   "price": 32,
+   "rating": 3.8,
+   "popularity": 60,
+   "discount": 5,
+   "tags": [
+    "sweet"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 4,
+   "shelf": {
+    "x": 37,
+    "y": 2
+   },
+   "pickup": {
+    "x": 37,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 34,
+   "sku": "P034",
+   "category": "drinks",
+   "slug": "sparkling-water",
+   "en": "Sparkling Water",
+   "ar": "مياه غازية",
+   "price": 15,
+   "rating": 4,
+   "popularity": 40,
+   "discount": 0,
+   "tags": [
+    "healthy"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 5,
+   "shelf": {
+    "x": 38,
+    "y": 2
+   },
+   "pickup": {
+    "x": 38,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 35,
+   "sku": "P035",
+   "category": "drinks",
+   "slug": "iced-tea",
+   "en": "Peach Iced Tea",
+   "ar": "شاي مثلج",
+   "price": 20,
+   "rating": 4.1,
+   "popularity": 55,
+   "discount": 0,
+   "tags": [
+    "sweet"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 6,
+   "shelf": {
+    "x": 39,
+    "y": 2
+   },
+   "pickup": {
+    "x": 39,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 36,
+   "sku": "P036",
+   "category": "drinks",
+   "slug": "hibiscus",
+   "en": "Hibiscus Drink 1L",
+   "ar": "كركديه 1 لتر",
+   "price": 28,
+   "rating": 4.5,
+   "popularity": 68,
+   "discount": 0,
+   "tags": [
+    "egyptian",
+    "healthy"
+   ],
+   "fixture": "wall-drinks",
+   "side": "wall",
+   "slot": 7,
+   "shelf": {
+    "x": 40,
+    "y": 2
+   },
+   "pickup": {
+    "x": 40,
+    "y": 3
+   },
+   "facing": "up"
+  },
+  {
+   "id": 37,
+   "sku": "P037",
+   "category": "produce",
+   "slug": "tomatoes",
+   "en": "Tomatoes 1kg",
+   "ar": "طماطم 1 كجم",
+   "price": 22,
+   "rating": 4.1,
+   "popularity": 94,
+   "discount": 0,
+   "tags": [
+    "fresh",
+    "staple",
+    "healthy",
+    "budget"
+   ],
+   "fixture": "island-produce",
+   "side": "top",
+   "slot": 0,
+   "shelf": {
+    "x": 17,
+    "y": 9
+   },
+   "pickup": {
+    "x": 17,
+    "y": 8
+   },
+   "facing": "down"
+  },
+  {
+   "id": 38,
+   "sku": "P038",
+   "category": "produce",
+   "slug": "bananas",
+   "en": "Bananas 1kg",
+   "ar": "موز 1 كجم",
+   "price": 38,
+   "rating": 4.6,
+   "popularity": 85,
+   "discount": 0,
+   "tags": [
+    "fresh",
+    "healthy",
+    "sweet",
+    "kids"
+   ],
+   "fixture": "island-produce",
+   "side": "top",
+   "slot": 1,
+   "shelf": {
+    "x": 18,
+    "y": 9
+   },
+   "pickup": {
+    "x": 18,
+    "y": 8
+   },
+   "facing": "down"
+  },
+  {
+   "id": 39,
+   "sku": "P039",
+   "category": "produce",
+   "slug": "oranges",
+   "en": "Oranges 1kg",
+   "ar": "برتقال 1 كجم",
+   "price": 25,
+   "rating": 4.5,
+   "popularity": 80,
+   "discount": 0,
+   "tags": [
+    "fresh",
+    "healthy"
+   ],
+   "fixture": "island-produce",
+   "side": "top",
+   "slot": 2,
+   "shelf": {
+    "x": 19,
+    "y": 9
+   },
+   "pickup": {
+    "x": 19,
+    "y": 8
+   },
+   "facing": "down"
+  },
+  {
+   "id": 40,
+   "sku": "P040",
+   "category": "produce",
+   "slug": "potatoes",
+   "en": "Potatoes 1kg",
+   "ar": "بطاطس 1 كجم",
+   "price": 24,
+   "rating": 4.2,
+   "popularity": 92,
+   "discount": 0,
+   "tags": [
+    "fresh",
+    "staple",
+    "budget"
+   ],
+   "fixture": "island-produce",
+   "side": "top",
+   "slot": 3,
+   "shelf": {
+    "x": 20,
+    "y": 9
+   },
+   "pickup": {
+    "x": 20,
+    "y": 8
+   },
+   "facing": "down"
+  },
+  {
+   "id": 41,
+   "sku": "P041",
+   "category": "produce",
+   "slug": "cucumbers",
+   "en": "Cucumbers 1kg",
+   "ar": "خيار 1 كجم",
+   "price": 20,
+   "rating": 4.2,
+   "popularity": 70,
+   "discount": 0,
+   "tags": [
+    "fresh",
+    "healthy",
+    "budget"
+   ],
+   "fixture": "island-produce",
+   "side": "bottom",
+   "slot": 0,
+   "shelf": {
+    "x": 17,
+    "y": 10
+   },
+   "pickup": {
+    "x": 17,
+    "y": 11
+   },
+   "facing": "up"
+  },
+  {
+   "id": 42,
+   "sku": "P042",
+   "category": "produce",
+   "slug": "onions",
+   "en": "Onions 1kg",
+   "ar": "بصل 1 كجم",
+   "price": 16,
+   "rating": 4.1,
+   "popularity": 90,
+   "discount": 0,
+   "tags": [
+    "fresh",
+    "staple",
+    "budget"
+   ],
+   "fixture": "island-produce",
+   "side": "bottom",
+   "slot": 1,
+   "shelf": {
+    "x": 18,
+    "y": 10
+   },
+   "pickup": {
+    "x": 18,
+    "y": 11
+   },
+   "facing": "up"
+  },
+  {
+   "id": 43,
+   "sku": "P043",
+   "category": "produce",
+   "slug": "apples",
+   "en": "Apples 1kg",
+   "ar": "تفاح 1 كجم",
+   "price": 55,
+   "rating": 4.5,
+   "popularity": 72,
+   "discount": 5,
+   "tags": [
+    "fresh",
+    "healthy",
+    "sweet"
+   ],
+   "fixture": "island-produce",
+   "side": "bottom",
+   "slot": 2,
+   "shelf": {
+    "x": 19,
+    "y": 10
+   },
+   "pickup": {
+    "x": 19,
+    "y": 11
+   },
+   "facing": "up"
+  },
+  {
+   "id": 44,
+   "sku": "P044",
+   "category": "produce",
+   "slug": "lettuce",
+   "en": "Lettuce",
+   "ar": "خس",
+   "price": 12,
+   "rating": 4,
+   "popularity": 55,
+   "discount": 0,
+   "tags": [
+    "fresh",
+    "healthy",
+    "budget"
+   ],
+   "fixture": "island-produce",
+   "side": "bottom",
+   "slot": 3,
+   "shelf": {
+    "x": 20,
+    "y": 10
+   },
+   "pickup": {
+    "x": 20,
+    "y": 11
+   },
+   "facing": "up"
+  },
+  {
+   "id": 45,
+   "sku": "P045",
+   "category": "grocery",
+   "slug": "rice",
+   "en": "White Rice 1kg",
+   "ar": "أرز أبيض 1 كجم",
+   "price": 48,
+   "rating": 4.5,
+   "popularity": 96,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "egyptian",
+    "budget"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "top",
+   "slot": 0,
+   "shelf": {
+    "x": 4,
+    "y": 5
+   },
+   "pickup": {
+    "x": 4,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 46,
+   "sku": "P046",
+   "category": "grocery",
+   "slug": "sugar",
+   "en": "Sugar 1kg",
+   "ar": "سكر 1 كجم",
+   "price": 38,
+   "rating": 4.3,
+   "popularity": 94,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "budget"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "top",
+   "slot": 1,
+   "shelf": {
+    "x": 5,
+    "y": 5
+   },
+   "pickup": {
+    "x": 5,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 47,
+   "sku": "P047",
+   "category": "grocery",
+   "slug": "flour",
+   "en": "Wheat Flour 1kg",
+   "ar": "دقيق 1 كجم",
+   "price": 26,
+   "rating": 4.1,
+   "popularity": 70,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "budget"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "top",
+   "slot": 2,
+   "shelf": {
+    "x": 6,
+    "y": 5
+   },
+   "pickup": {
+    "x": 6,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 48,
+   "sku": "P048",
+   "category": "grocery",
+   "slug": "pasta",
+   "en": "Macaroni Pasta",
+   "ar": "مكرونة",
+   "price": 16,
+   "rating": 4.4,
+   "popularity": 92,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "budget",
+    "family",
+    "egyptian"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "top",
+   "slot": 3,
+   "shelf": {
+    "x": 7,
+    "y": 5
+   },
+   "pickup": {
+    "x": 7,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 49,
+   "sku": "P049",
+   "category": "grocery",
+   "slug": "lentils",
+   "en": "Red Lentils 500g",
+   "ar": "عدس أصفر 500 جم",
+   "price": 36,
+   "rating": 4.4,
+   "popularity": 74,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "healthy",
+    "protein",
+    "egyptian"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "top",
+   "slot": 4,
+   "shelf": {
+    "x": 8,
+    "y": 5
+   },
+   "pickup": {
+    "x": 8,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 50,
+   "sku": "P050",
+   "category": "grocery",
+   "slug": "chickpeas",
+   "en": "Dried Chickpeas",
+   "ar": "حمص حب",
+   "price": 42,
+   "rating": 4.2,
+   "popularity": 62,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "healthy",
+    "protein"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "top",
+   "slot": 5,
+   "shelf": {
+    "x": 9,
+    "y": 5
+   },
+   "pickup": {
+    "x": 9,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 51,
+   "sku": "P051",
+   "category": "grocery",
+   "slug": "cooking-oil",
+   "en": "Sunflower Oil 1L",
+   "ar": "زيت عباد الشمس",
+   "price": 78,
+   "rating": 4.3,
+   "popularity": 90,
+   "discount": 0,
+   "tags": [
+    "staple"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "bottom",
+   "slot": 0,
+   "shelf": {
+    "x": 4,
+    "y": 6
+   },
+   "pickup": {
+    "x": 4,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 52,
+   "sku": "P052",
+   "category": "grocery",
+   "slug": "olive-oil",
+   "en": "Olive Oil 500ml",
+   "ar": "زيت زيتون",
+   "price": 190,
+   "rating": 4.7,
+   "popularity": 52,
+   "discount": 10,
+   "tags": [
+    "premium",
+    "healthy"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "bottom",
+   "slot": 1,
+   "shelf": {
+    "x": 5,
+    "y": 6
+   },
+   "pickup": {
+    "x": 5,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 53,
+   "sku": "P053",
+   "category": "grocery",
+   "slug": "tea",
+   "en": "Black Tea Box",
+   "ar": "شاي أسود",
+   "price": 62,
+   "rating": 4.6,
+   "popularity": 94,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "breakfast",
+    "egyptian"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "bottom",
+   "slot": 2,
+   "shelf": {
+    "x": 6,
+    "y": 6
+   },
+   "pickup": {
+    "x": 6,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 54,
+   "sku": "P054",
+   "category": "grocery",
+   "slug": "coffee",
+   "en": "Ground Coffee 200g",
+   "ar": "بن مطحون 200 جم",
+   "price": 88,
+   "rating": 4.5,
+   "popularity": 72,
+   "discount": 0,
+   "tags": [
+    "breakfast",
+    "premium"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "bottom",
+   "slot": 3,
+   "shelf": {
+    "x": 7,
+    "y": 6
+   },
+   "pickup": {
+    "x": 7,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 55,
+   "sku": "P055",
+   "category": "grocery",
+   "slug": "fava-beans",
+   "en": "Fava Beans (Foul) Can",
+   "ar": "فول مدمس معلب",
+   "price": 20,
+   "rating": 4.3,
+   "popularity": 90,
+   "discount": 0,
+   "tags": [
+    "egyptian",
+    "breakfast",
+    "protein",
+    "budget",
+    "staple"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "bottom",
+   "slot": 4,
+   "shelf": {
+    "x": 8,
+    "y": 6
+   },
+   "pickup": {
+    "x": 8,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 56,
+   "sku": "P056",
+   "category": "grocery",
+   "slug": "tuna",
+   "en": "Canned Tuna",
+   "ar": "تونة معلبة",
+   "price": 48,
+   "rating": 4.4,
+   "popularity": 80,
+   "discount": 5,
+   "tags": [
+    "protein",
+    "healthy"
+   ],
+   "fixture": "gondola-grocery-1",
+   "side": "bottom",
+   "slot": 5,
+   "shelf": {
+    "x": 9,
+    "y": 6
+   },
+   "pickup": {
+    "x": 9,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 57,
+   "sku": "P057",
+   "category": "grocery",
+   "slug": "tomato-sauce",
+   "en": "Tomato Sauce Can",
+   "ar": "صلصة طماطم",
+   "price": 12,
+   "rating": 4.1,
+   "popularity": 76,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "budget"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "top",
+   "slot": 0,
+   "shelf": {
+    "x": 14,
+    "y": 5
+   },
+   "pickup": {
+    "x": 14,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 58,
+   "sku": "P058",
+   "category": "grocery",
+   "slug": "tahini",
+   "en": "Tahini Jar",
+   "ar": "طحينة",
+   "price": 58,
+   "rating": 4.5,
+   "popularity": 66,
+   "discount": 0,
+   "tags": [
+    "breakfast",
+    "egyptian",
+    "healthy"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "top",
+   "slot": 1,
+   "shelf": {
+    "x": 15,
+    "y": 5
+   },
+   "pickup": {
+    "x": 15,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 59,
+   "sku": "P059",
+   "category": "grocery",
+   "slug": "honey",
+   "en": "Honey Jar",
+   "ar": "عسل نحل",
+   "price": 115,
+   "rating": 4.6,
+   "popularity": 58,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "premium",
+    "breakfast",
+    "healthy"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "top",
+   "slot": 2,
+   "shelf": {
+    "x": 16,
+    "y": 5
+   },
+   "pickup": {
+    "x": 16,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 60,
+   "sku": "P060",
+   "category": "grocery",
+   "slug": "dates",
+   "en": "Dates Box",
+   "ar": "تمر",
+   "price": 68,
+   "rating": 4.6,
+   "popularity": 62,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "healthy",
+    "egyptian"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "top",
+   "slot": 3,
+   "shelf": {
+    "x": 17,
+    "y": 5
+   },
+   "pickup": {
+    "x": 17,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 61,
+   "sku": "P061",
+   "category": "grocery",
+   "slug": "jam",
+   "en": "Strawberry Jam",
+   "ar": "مربى فراولة",
+   "price": 30,
+   "rating": 4.2,
+   "popularity": 60,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "breakfast",
+    "kids"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "top",
+   "slot": 4,
+   "shelf": {
+    "x": 18,
+    "y": 5
+   },
+   "pickup": {
+    "x": 18,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 62,
+   "sku": "P062",
+   "category": "grocery",
+   "slug": "halawa",
+   "en": "Halawa Tahiniya",
+   "ar": "حلاوة طحينية",
+   "price": 36,
+   "rating": 4.4,
+   "popularity": 64,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "egyptian",
+    "breakfast"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "bottom",
+   "slot": 0,
+   "shelf": {
+    "x": 14,
+    "y": 6
+   },
+   "pickup": {
+    "x": 14,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 63,
+   "sku": "P063",
+   "category": "grocery",
+   "slug": "salt",
+   "en": "Table Salt",
+   "ar": "ملح",
+   "price": 8,
+   "rating": 4,
+   "popularity": 80,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "budget"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "bottom",
+   "slot": 1,
+   "shelf": {
+    "x": 15,
+    "y": 6
+   },
+   "pickup": {
+    "x": 15,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 64,
+   "sku": "P064",
+   "category": "grocery",
+   "slug": "cumin",
+   "en": "Ground Cumin",
+   "ar": "كمون",
+   "price": 14,
+   "rating": 4.2,
+   "popularity": 55,
+   "discount": 0,
+   "tags": [
+    "staple",
+    "egyptian",
+    "budget"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "bottom",
+   "slot": 2,
+   "shelf": {
+    "x": 16,
+    "y": 6
+   },
+   "pickup": {
+    "x": 16,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 65,
+   "sku": "P065",
+   "category": "grocery",
+   "slug": "corn-flakes",
+   "en": "Corn Flakes",
+   "ar": "كورن فليكس",
+   "price": 62,
+   "rating": 4.2,
+   "popularity": 66,
+   "discount": 5,
+   "tags": [
+    "breakfast",
+    "kids",
+    "sweet"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "bottom",
+   "slot": 3,
+   "shelf": {
+    "x": 17,
+    "y": 6
+   },
+   "pickup": {
+    "x": 17,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 66,
+   "sku": "P066",
+   "category": "grocery",
+   "slug": "oats",
+   "en": "Rolled Oats",
+   "ar": "شوفان",
+   "price": 48,
+   "rating": 4.5,
+   "popularity": 58,
+   "discount": 0,
+   "tags": [
+    "breakfast",
+    "healthy"
+   ],
+   "fixture": "gondola-grocery-2",
+   "side": "bottom",
+   "slot": 4,
+   "shelf": {
+    "x": 18,
+    "y": 6
+   },
+   "pickup": {
+    "x": 18,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 67,
+   "sku": "P067",
+   "category": "snacks",
+   "slug": "chips",
+   "en": "Potato Chips",
+   "ar": "شيبسي",
+   "price": 10,
+   "rating": 4.3,
+   "popularity": 92,
+   "discount": 0,
+   "tags": [
+    "kids",
+    "budget"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "top",
+   "slot": 0,
+   "shelf": {
+    "x": 23,
+    "y": 5
+   },
+   "pickup": {
+    "x": 23,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 68,
+   "sku": "P068",
+   "category": "snacks",
+   "slug": "chocolate",
+   "en": "Milk Chocolate Bar",
+   "ar": "شوكولاتة بالحليب",
+   "price": 18,
+   "rating": 4.6,
+   "popularity": 88,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "kids"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "top",
+   "slot": 1,
+   "shelf": {
+    "x": 24,
+    "y": 5
+   },
+   "pickup": {
+    "x": 24,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 69,
+   "sku": "P069",
+   "category": "snacks",
+   "slug": "biscuits",
+   "en": "Digestive Biscuits",
+   "ar": "بسكويت",
+   "price": 10,
+   "rating": 4.2,
+   "popularity": 86,
+   "discount": 0,
+   "tags": [
+    "budget",
+    "kids",
+    "breakfast"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "top",
+   "slot": 2,
+   "shelf": {
+    "x": 25,
+    "y": 5
+   },
+   "pickup": {
+    "x": 25,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 70,
+   "sku": "P070",
+   "category": "snacks",
+   "slug": "candy",
+   "en": "Candy Bag",
+   "ar": "حلويات ملونة",
+   "price": 14,
+   "rating": 4,
+   "popularity": 64,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "kids",
+    "budget"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "top",
+   "slot": 3,
+   "shelf": {
+    "x": 26,
+    "y": 5
+   },
+   "pickup": {
+    "x": 26,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 71,
+   "sku": "P071",
+   "category": "snacks",
+   "slug": "nuts",
+   "en": "Mixed Nuts 200g",
+   "ar": "مكسرات 200 جم",
+   "price": 85,
+   "rating": 4.6,
+   "popularity": 62,
+   "discount": 0,
+   "tags": [
+    "healthy",
+    "premium",
+    "protein"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "top",
+   "slot": 4,
+   "shelf": {
+    "x": 27,
+    "y": 5
+   },
+   "pickup": {
+    "x": 27,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 72,
+   "sku": "P072",
+   "category": "snacks",
+   "slug": "popcorn",
+   "en": "Popcorn",
+   "ar": "فشار",
+   "price": 12,
+   "rating": 4.1,
+   "popularity": 50,
+   "discount": 0,
+   "tags": [
+    "kids",
+    "budget"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "bottom",
+   "slot": 0,
+   "shelf": {
+    "x": 23,
+    "y": 6
+   },
+   "pickup": {
+    "x": 23,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 73,
+   "sku": "P073",
+   "category": "snacks",
+   "slug": "wafer",
+   "en": "Chocolate Wafer",
+   "ar": "ويفر بالشوكولاتة",
+   "price": 8,
+   "rating": 4.2,
+   "popularity": 76,
+   "discount": 0,
+   "tags": [
+    "sweet",
+    "kids",
+    "budget"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "bottom",
+   "slot": 1,
+   "shelf": {
+    "x": 24,
+    "y": 6
+   },
+   "pickup": {
+    "x": 24,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 74,
+   "sku": "P074",
+   "category": "snacks",
+   "slug": "cheese-puffs",
+   "en": "Cheese Puffs",
+   "ar": "شيتوس",
+   "price": 10,
+   "rating": 4.1,
+   "popularity": 70,
+   "discount": 0,
+   "tags": [
+    "kids",
+    "budget"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "bottom",
+   "slot": 2,
+   "shelf": {
+    "x": 25,
+    "y": 6
+   },
+   "pickup": {
+    "x": 25,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 75,
+   "sku": "P075",
+   "category": "snacks",
+   "slug": "granola-bar",
+   "en": "Granola Bar",
+   "ar": "ألواح جرانولا",
+   "price": 20,
+   "rating": 4.2,
+   "popularity": 48,
+   "discount": 0,
+   "tags": [
+    "healthy",
+    "breakfast"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "bottom",
+   "slot": 3,
+   "shelf": {
+    "x": 26,
+    "y": 6
+   },
+   "pickup": {
+    "x": 26,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 76,
+   "sku": "P076",
+   "category": "snacks",
+   "slug": "sunflower-seeds",
+   "en": "Roasted Sunflower Seeds",
+   "ar": "لب سوري",
+   "price": 25,
+   "rating": 4.3,
+   "popularity": 56,
+   "discount": 0,
+   "tags": [
+    "egyptian",
+    "budget"
+   ],
+   "fixture": "gondola-snacks",
+   "side": "bottom",
+   "slot": 4,
+   "shelf": {
+    "x": 27,
+    "y": 6
+   },
+   "pickup": {
+    "x": 27,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 77,
+   "sku": "P077",
+   "category": "household",
+   "slug": "detergent",
+   "en": "Laundry Detergent 3kg",
+   "ar": "مسحوق غسيل 3 كجم",
+   "price": 120,
+   "rating": 4.4,
+   "popularity": 80,
+   "discount": 0,
+   "tags": [
+    "household",
+    "family"
+   ],
+   "fixture": "gondola-household",
+   "side": "top",
+   "slot": 0,
+   "shelf": {
+    "x": 32,
+    "y": 5
+   },
+   "pickup": {
+    "x": 32,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 78,
+   "sku": "P078",
+   "category": "household",
+   "slug": "dish-soap",
+   "en": "Dishwashing Liquid",
+   "ar": "سائل غسيل أطباق",
+   "price": 32,
+   "rating": 4.3,
+   "popularity": 82,
+   "discount": 0,
+   "tags": [
+    "household",
+    "budget"
+   ],
+   "fixture": "gondola-household",
+   "side": "top",
+   "slot": 1,
+   "shelf": {
+    "x": 33,
+    "y": 5
+   },
+   "pickup": {
+    "x": 33,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 79,
+   "sku": "P079",
+   "category": "household",
+   "slug": "tissue",
+   "en": "Facial Tissues",
+   "ar": "مناديل",
+   "price": 22,
+   "rating": 4.2,
+   "popularity": 84,
+   "discount": 0,
+   "tags": [
+    "household",
+    "budget"
+   ],
+   "fixture": "gondola-household",
+   "side": "top",
+   "slot": 2,
+   "shelf": {
+    "x": 34,
+    "y": 5
+   },
+   "pickup": {
+    "x": 34,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 80,
+   "sku": "P080",
+   "category": "household",
+   "slug": "shampoo",
+   "en": "Shampoo",
+   "ar": "شامبو",
+   "price": 72,
+   "rating": 4.3,
+   "popularity": 66,
+   "discount": 5,
+   "tags": [
+    "household"
+   ],
+   "fixture": "gondola-household",
+   "side": "top",
+   "slot": 3,
+   "shelf": {
+    "x": 35,
+    "y": 5
+   },
+   "pickup": {
+    "x": 35,
+    "y": 4
+   },
+   "facing": "down"
+  },
+  {
+   "id": 81,
+   "sku": "P081",
+   "category": "household",
+   "slug": "toothpaste",
+   "en": "Toothpaste",
+   "ar": "معجون أسنان",
+   "price": 38,
+   "rating": 4.5,
+   "popularity": 78,
+   "discount": 0,
+   "tags": [
+    "household",
+    "healthy"
+   ],
+   "fixture": "gondola-household",
+   "side": "bottom",
+   "slot": 0,
+   "shelf": {
+    "x": 32,
+    "y": 6
+   },
+   "pickup": {
+    "x": 32,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 82,
+   "sku": "P082",
+   "category": "household",
+   "slug": "bleach",
+   "en": "Bleach Cleaner",
+   "ar": "كلور",
+   "price": 28,
+   "rating": 4.1,
+   "popularity": 70,
+   "discount": 0,
+   "tags": [
+    "household",
+    "budget"
+   ],
+   "fixture": "gondola-household",
+   "side": "bottom",
+   "slot": 1,
+   "shelf": {
+    "x": 33,
+    "y": 6
+   },
+   "pickup": {
+    "x": 33,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 83,
+   "sku": "P083",
+   "category": "household",
+   "slug": "hand-soap",
+   "en": "Hand Soap Bar",
+   "ar": "صابون",
+   "price": 12,
+   "rating": 4.2,
+   "popularity": 72,
+   "discount": 0,
+   "tags": [
+    "household",
+    "budget"
+   ],
+   "fixture": "gondola-household",
+   "side": "bottom",
+   "slot": 2,
+   "shelf": {
+    "x": 34,
+    "y": 6
+   },
+   "pickup": {
+    "x": 34,
+    "y": 7
+   },
+   "facing": "up"
+  },
+  {
+   "id": 84,
+   "sku": "P084",
+   "category": "household",
+   "slug": "toilet-paper",
+   "en": "Toilet Paper (4 rolls)",
+   "ar": "ورق تواليت (4 رولات)",
+   "price": 55,
+   "rating": 4.4,
+   "popularity": 80,
+   "discount": 0,
+   "tags": [
+    "household",
+    "family"
+   ],
+   "fixture": "gondola-household",
+   "side": "bottom",
+   "slot": 3,
+   "shelf": {
+    "x": 35,
+    "y": 6
+   },
+   "pickup": {
+    "x": 35,
+    "y": 7
+   },
+   "facing": "up"
+  }
+ ]
+}

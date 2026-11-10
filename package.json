@@ -1,0 +1,14 @@
+{
+  "name": "basketwise-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BasketWise AI — smart shopping decisions within your budget (Algorithms + AI course project)",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "backend": "make -C backend all && backend/build/basketwise-server --port 8080 --data data/store.json",
+    "test": "make -C backend test",
+    "data": "node tools/build-store.mjs",
+    "assets": "node tools/gen-assets.mjs"
+  }
+}

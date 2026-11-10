@@ -1,0 +1,148 @@
+{
+ "products": [
+  "baladi-bread",
+  "fino-bread",
+  "toast-bread",
+  "croissant",
+  "cake-slice",
+  "basbousa",
+  "sesame-ring",
+  "maamoul",
+  "milk-full",
+  "milk-skim",
+  "milk-choco",
+  "yogurt",
+  "yogurt-fruit",
+  "white-cheese",
+  "rumi-cheese",
+  "butter",
+  "eggs",
+  "cheese-triangles",
+  "chicken",
+  "beef",
+  "minced-meat",
+  "fish",
+  "liver",
+  "ice-cream",
+  "molokhia",
+  "frozen-peas",
+  "french-fries",
+  "frozen-okra",
+  "water-pack",
+  "orange-juice",
+  "mango-juice",
+  "cola",
+  "energy-drink",
+  "sparkling-water",
+  "iced-tea",
+  "hibiscus",
+  "tomatoes",
+  "bananas",
+  "oranges",
+  "potatoes",
+  "cucumbers",
+  "onions",
+  "apples",
+  "lettuce",
+  "rice",
+  "sugar",
+  "flour",
+  "pasta",
+  "lentils",
+  "chickpeas",
+  "cooking-oil",
+  "olive-oil",
+  "tea",
+  "coffee",
+  "fava-beans",
+  "tuna",
+  "tomato-sauce",
+  "tahini",
+  "honey",
+  "dates",
+  "jam",
+  "halawa",
+  "salt",
+  "cumin",
+  "corn-flakes",
+  "oats",
+  "chips",
+  "chocolate",
+  "biscuits",
+  "candy",
+  "nuts",
+  "popcorn",
+  "wafer",
+  "cheese-puffs",
+  "granola-bar",
+  "sunflower-seeds",
+  "detergent",
+  "dish-soap",
+  "tissue",
+  "shampoo",
+  "toothpaste",
+  "bleach",
+  "hand-soap",
+  "toilet-paper"
+ ],
+ "props": {
+  "shopping-cart": {
+   "w": 1,
+   "h": 1
+  },
+  "cart-park": {
+   "w": 3,
+   "h": 2
+  },
+  "basket-stack": {
+   "w": 1,
+   "h": 1
+  },
+  "plant": {
+   "w": 1,
+   "h": 1
+  },
+  "pillar": {
+   "w": 1,
+   "h": 1
+  },
+  "pallet-water": {
+   "w": 4,
+   "h": 2
+  },
+  "promo-stand": {
+   "w": 4,
+   "h": 2
+  },
+  "checkout-lane": {
+   "w": 6,
+   "h": 1
+  },
+  "cashier-kiosk": {
+   "w": 1,
+   "h": 1
+  },
+  "doormat": {
+   "w": 3,
+   "h": 2
+  },
+  "entrance-door": {
+   "w": 3,
+   "h": 1
+  },
+  "wet-floor-sign": {
+   "w": 1,
+   "h": 1
+  }
+ },
+ "shopper": {
+  "size": 144,
+  "dirs": [
+   "down",
+   "up",
+   "left",
+   "right"
+  ],
+  "frames": 4
+ }
+}

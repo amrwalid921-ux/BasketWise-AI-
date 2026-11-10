@@ -1,0 +1,23 @@
+:root {
+  color-scheme: light;
+  --ink: #111111;
+  --page: #1748C8;
+  --header: #F2F6FC;
+  --surface: #FFFFFF;
+  --primary: #D05F3B;
+  --yellow: #FFD93D;
+  --orange: #FFC98B;
+  --peach: #FFD9B0;
+  --lime: #CFE0FF;
+  --pink: #BFD4FF;
+  --blue: #2F7BFF;
+  --mint: #7DE3D2;
+  --sky: #7CC8FF;
+  --font: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif;
+  --number-font: "Space Mono", "Cascadia Mono", Consolas, monospace;
+  --stroke: 3px solid var(--ink);
+  --stroke-inner: 2.5px solid var(--ink);
+  --shadow-card: 6px 6px 0 var(--ink);
+  --shadow-chip: 3px 3px 0 var(--ink);
+  --shadow-cta: 5px 5px 0 var(--ink);
+}
