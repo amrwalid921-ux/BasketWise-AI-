@@ -24,7 +24,7 @@ function start() {
       chmodSync('/tmp/basketwise-server', 0o755);
       const child = spawn('/tmp/basketwise-server', ['--port', String(PORT), '--data', data], { cwd: '/tmp', stdio: 'inherit' });
       child.on('exit', () => { ready = null; });
-      for (let i = 0; i < 60; i++) { if (await ping()) return; await new Promise((r) => setTimeout(r, 100)); }
+      for (let i = 0; i < 240; i++) { if (await ping()) return; await new Promise((r) => setTimeout(r, 25)); }
       ready = null;
       throw new Error('backend did not start');
     })();

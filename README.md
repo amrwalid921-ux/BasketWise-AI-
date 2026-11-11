@@ -1,127 +1,111 @@
-# 🛒 BasketWise AI — قرارات شراء ذكية في حدود ميزانيتك
+# BasketWise AI
 
-مشروع جامعي لمادتي **Algorithms** و**AI**. تخيّل إنك داخل سوبر ماركت ومعاك ميزانية محدودة: بتصرف على حاجات مش محتاجها، وبتنسى حاجات، وبتلف رايح جاي من غير داعي. هنا بتقول للتطبيق **معاك كام** و**بتحب إيه**، وهو:
+A smart-shopping simulator built for the Algorithms and AI course. You give it a budget and your preferences, and it decides what to buy, in which order to visit the shelves, and which path to walk through the store. The algorithms run in a C++ backend. The web interface shows each decision on a 2D map of a supermarket.
 
-1. 🧠 **يقيّم** كل منتج في المتجر حسب ذوقك (AI).
-2. 🎒 **يختار أحسن سلة** تدخل في ميزانيتك (Knapsack).
-3. 🗺️ **يرتّب الزيارة** بأذكى ترتيب (TSP).
-4. 🛣️ **يوصّلك** لكل منتج بأقصر مسار مشي من المدخل لحد الكاشير (BFS / Dijkstra / A*).
+Live demo: https://basket-wise-ai.vercel.app
 
-كل ده بيحصل **قدام عينك جوه لعبة سوبر ماركت**: متسوّق بعربية بيمشي فعليًا، والخلايا اللي الخوارزمية بتفحصها بتنوّر في الأرضية زي الرادار.
+![Trip in progress](docs/screenshots/trip.jpg)
 
-| التقييم والسلة | الرادار (A\*) | البحث مع تصحيح الأخطاء |
+## Team
+
+East Port Said National University, Faculty of Computer Science and Information Technology.
+
+| Name |
+|---|
+| Amr Walid Bakheet |
+| Mohamed Mahmoud Shadad |
+| Mohamed Mostafa Zaki |
+| Ziad Wagih El Sharkawy |
+| Hazem Gad Amin Marai |
+| Ahmed Ibrahim Ramadan Hafez |
+| Hossam Nasser Othman |
+| Ahmed Ibrahim Ragab |
+| Mohamed Nagi Abdel Aal |
+| Omar Alaa Eldin Shaker |
+
+Supervised by Dr. Sara Abo Hasish and Dr. Aya Elsayed, with teaching assistants Tasneem Elattar and Sama Bessar.
+
+## What it does
+
+1. Scores every product against the user's preferences (content-based scoring).
+2. Picks the best basket that fits the budget (0/1 knapsack, compared with a greedy version).
+3. Orders the shelf visits (travelling salesman: Held-Karp, nearest neighbour and 2-opt).
+4. Finds the walking path between stops with BFS, Dijkstra or A*, on a 42 x 22 grid where some cells cost more to cross (wet floor, checkout queue).
+
+The map shows the cells each path algorithm examined, so the difference between the three is visible: BFS minimises steps, Dijkstra and A* minimise cost, and A* examines far fewer cells.
+
+Other parts of the app: product search with spelling correction (Arabic and English), an animated sorting view for six algorithms, and a challenge mode that compares the player's basket with the optimal one.
+
+## Algorithms
+
+All of these are written from scratch in `backend/src`. The backend does not use `std::sort`, `priority_queue`, `map` or `unordered_map`; the heap, hash table, trie, sorts and JSON parser are our own code. The tests use `std::sort` only as a reference to compare against.
+
+| Topic | Algorithms | Used for |
 |---|---|---|
-| ![](docs/screenshots/03-basket.png) | ![](docs/screenshots/04-thinking.png) | ![](docs/screenshots/06-search.png) |
+| Sorting | Merge, Quick (median of three), Heap, Insertion, Selection, Bubble | Ordering products by price, rating, popularity, discount, name or AI score. Each run records a trace that the interface replays as an animation. |
+| Searching | Hash table, Binary search, Trie, Levenshtein distance | Lookup by id, exact name, name prefix, and spelling suggestions. |
+| Shortest path | BFS, Dijkstra with a binary heap, A* with Manhattan distance | Walking path from the entrance to each product and then to the checkout. |
+| Scoring | Weighted content-based score | Ranks products by preference, value, popularity and discount. |
+| Basket | 0/1 knapsack (dynamic programming), greedy, brute force for verification | Highest total score within the budget. |
+| Visit order | Held-Karp, nearest neighbour, 2-opt | Order of shelves to visit, using real Dijkstra costs as distances. |
 
-| الترتيب بالأنيميشن | وضع التحدّي | المقارنة بأرقام حقيقية |
-|---|---|---|
-| ![](docs/screenshots/08-sorting-done.png) | ![](docs/screenshots/12-challenge-result.png) | ![](docs/screenshots/13-compare.png) |
+More detail on each one is in [docs/BACKEND.md](docs/BACKEND.md). The HTTP interface is described in [docs/API.md](docs/API.md).
 
----
+## Running it locally
 
-## ▶️ التشغيل (أمر واحد)
-
-**المتطلبات:** `g++` يدعم C++17 + `make` + **Node.js 18+** (Windows: استخدم WSL أو MSYS2).
+You need a C++17 compiler (g++), make, and Node.js 18 or newer. On Windows, use WSL.
 
 ```bash
 npm start
 ```
 
-الأمر ده بيعمل كل حاجة: يبني الـ backend بـ `make` (لو محتاج)، يثبّت حزم الواجهة أول مرة، يشغّل الـ C++ server على `:8080` وواجهة React على **http://localhost:5173**. افتح الرابط وخلاص. (`Ctrl+C` يقفل الاتنين.)
+This builds the backend if needed, installs the frontend packages on first run, starts the C++ server on port 8080 and the web app on http://localhost:5173.
 
-| أمر | وظيفته |
+| Command | Purpose |
 |---|---|
-| `npm start` | تشغيل كل المشروع |
-| `npm test` | اختبارات الـ C++ (39 اختبار / 37,355 فحص) |
-| `npm run backend` | تشغيل الـ backend لوحده |
-| `npm run data` | إعادة توليد `data/store.json` (المتجر والكتالوج) |
-| `npm run assets` | إعادة توليد رسومات الـ SVG |
+| `npm start` | Run backend and frontend together |
+| `npm test` | Run the C++ tests |
+| `npm run backend` | Run only the backend |
+| `npm run data` | Regenerate `data/store.json` |
 
----
+If the page says it cannot reach the backend, the C++ server is not running. Use `npm start`, or build it with `make -C backend`. If port 8080 is taken, run `API_PORT=8090 npm start`.
 
-## 🎮 إزاي تلعب
-
-* **⚙️ إعداد:** الميزانية، درجة حبّك لكل قسم (−3…+3)، مميزات بتحبها/مش بتحبها، أقسام تستبعدها، وحاجات **لازم** تشتريها ⭐ → **ابدأ الرحلة**.
-* **المشهد:** الـ AI ينوّر المنتجات حسب درجتها (أحمر→أخضر) ← يختار السلة (المختار ينوّر والباقي يتعتّم) ← يرقّم ترتيب الزيارة ← المتسوّق يدخل من الباب ويمشي ويرمي كل منتج في العربية، و**الـ HUD** فوق يوريك الميزانية (زي شريط حياة)، عدد العناصر، النقاط، الخطوات، وعدد الخلايا اللي اتفحصت.
-* **📡 الرادار:** كل مرة بيتحسب مسار بتشوف الخلايا بتنوّر بترتيب فحص الخوارزمية، وبعدها المسار النهائي يترسم. اللوحة الصغيرة تحت بتوريك الـ **3 خوارزميات على نفس الرحلة** جنب بعض؛ اضغط على أي واحدة أو على **BFS / Dijkstra / A\*** لتبديلها، و**↻ نفس الرحلة** تعيدها بالخوارزمية الجديدة. فيه مناطق بطيئة (أرضية مبلولة، طابور) عشان تشوف ليه BFS (أقل خطوات) غير Dijkstra/A\* (أقل تكلفة).
-* **🔎 بحث:** اكتب اسم منتج بالعربي أو الإنجليزي أو الـ ID (`#12`) — الكاميرا تروح للرف وتنوّره. لو كتبت غلط (`chiken`, `mlk`, `عيش بلدى`) بيقترح الصح.
-* **🔀 ترتيب:** رتّب الـ 84 منتج حسب السعر/التقييم/الشعبية/قوة العرض/الاسم/درجة الـ AI بأي من 6 خوارزميات، وشوف الكروت بتتحرك مع كل **مقارنة** (أصفر) و**تبديل** (أخضر). زرار «قارن الـ 6» يطلّع أرقام حقيقية.
-* **🏆 تحدّي:** 3 مستويات (ميزانية طالب / سلة أسرة / رجيم صحي). انت بتختار المنتجات بإيدك (ترتيب اختيارك = ترتيب مشيك)، والمتسوّق ينفّذ، وبعدها **/api/evaluate** يقارن نتيجتك بالحل المثالي (⭐ نجوم + score من 1000)، وتقدر تتفرج على الحل المثالي بيتنفذ.
-* التحكم: ⏸ إيقاف، سرعة ×0.5…×4، 🎥 تتبّع / 🗺️ عرض كامل، عجلة الماوس للزوم، سحب للتحريك.
-* **📊 مقارنة الخوارزميات:** صفحة بأرقام حقيقية بيقيسها الـ C++ دلوقتي (`steady_clock`) مع رسوم بيانية.
-
----
-
-## 🧮 الخوارزميات (مكتوبة من الصفر بـ C++)
-
-> الـ backend (`backend/src`، حوالي 4,000 سطر) **مفيهوش** `std::sort` ولا `priority_queue` ولا `map`/`unordered_map` ولا `find` ولا `next_permutation`. كل heap وhash table وtrie وsort مكتوب بإيدنا. (الاختبارات بس بتستخدم `std::sort` كـ oracle للمقارنة.) كمان الـ JSON parser/writer وسيرفر HTTP على POSIX sockets مكتوبين من الصفر.
-
-| الموضوع | الخوارزميات | دورها الحقيقي في التطبيق | التعقيد | الملف |
-|---|---|---|---|---|
-| **Sorting** | Merge · Quick (median-of-3) · Heap · Insertion · Selection · Bubble | ترتيب المنتجات حسب السعر/التقييم/الشعبية/العرض/الاسم/الدرجة، وترتيب نتائج البحث، وترتيب Greedy في الـ Knapsack. نفس الـ comparator `(key, id)` فكل الخوارزميات بتطلّع نفس الترتيب. بتسجّل **trace** بالعمليات عشان الواجهة تعيد تشغيلها بالأنيميشن. | O(n log n) … O(n²) | `sorting.hpp` |
-| **Searching** | Hash table (FNV-1a) · Binary search · Trie · Levenshtein DP | بحث بالـ ID (binary search) وبالاسم (hash للتطابق التام، trie للبداية، substring) و**تصحيح الأخطاء الإملائية** (عربي وإنجليزي بعد normalisation للهمزات والتشكيل والتاء المربوطة). | O(1) · O(log n) · O(L) · O(L²) | `searching.cpp`, `text.cpp` |
-| **Shortest Path** | BFS · Dijkstra (binary heap من الصفر) · A\* (Manhattan) | أقصر مسار مشي من المدخل لكل منتج ثم للكاشير على شبكة 42×22 فيها تكلفة خلايا مختلفة. بترجّع ترتيب الخلايا المفحوصة للرادار. | O(V+E) · O((V+E) log V) | `pathfinding.cpp` |
-| **AI – تقييم الذوق** | Content-based scoring | `score = 100·(w₁·تفضيل + w₂·قيمة + w₃·شعبية + w₄·خصم)` + سبب مفهوم لكل منتج. | O(n) | `ai.cpp` |
-| **AI – اختيار السلة** | 0/1 **Knapsack** (DP) مقابل Greedy (+ Brute force للتحقق) | أعلى مجموع درجات داخل الميزانية، والحاجات اللي لازم تتشال إجبارية. | O(n·W) | `ai.cpp` |
-| **AI – ترتيب الزيارة** | **TSP**: Held–Karp (مثالي ≤15) · Nearest Neighbour · 2-opt | أذكى ترتيب لجمع المنتجات، من المدخل للكاشير، بمسافات = تكلفة Dijkstra الحقيقية. | O(2ⁿn²) · O(n²) | `ai.cpp` |
-
-تفاصيل كل خوارزمية (الفكرة، الـ invariant، التعقيد) في [`docs/BACKEND.md`](docs/BACKEND.md).
-
-### أرقام حقيقية (جهاز التطوير، seed=42 — هتختلف على جهازك؛ شغّل صفحة المقارنة)
-
-| | النتيجة |
-|---|---|
-| Sort، n=5000 عشوائي | Heap ≈ 0.35 ms · Quick ≈ 0.47 ms · Merge ≈ 0.57 ms · Insertion ≈ 12 ms · Bubble ≈ 30 ms · Selection ≈ 35 ms |
-| Path، متوسط الخلايا المفحوصة (300 زوج) | BFS **325** · Dijkstra **327** · A\* **37** (≈ 9× أقل) |
-| Path، نسبة المسارات المثالية في التكلفة | BFS **57%** · Dijkstra **100%** · A\* **100%** |
-| TSP n=14، متوسط التكلفة | Held–Karp **116** · 2-opt 119 · NN 130 · عشوائي 264 |
-| Knapsack، ميزانية 300 | DP **1209.8** نقطة مقابل Greedy 1192.8 |
-
----
-
-## 🏗️ المعمارية
-
-```
-┌──────────────── React + Canvas (frontend/) ────────────────┐
-│  Game engine (الكاميرا، المتسوّق، الرادار، الأنيميشن)         │
-│  لوحات: الإعداد · السلة · البحث · الترتيب · التحدّي · المقارنة │
-└───────────────▲──────────────────────────────┬─────────────┘
-                │ JSON /api/*  (Vite proxy)     │
-┌───────────────┴──────────────────────────────▼─────────────┐
-│  C++17 server (backend/): HTTP → JSON → الخوارزميات          │
-│  search · sort · path · plan · evaluate · benchmark          │
-└───────────────────────────────▲─────────────────────────────┘
-                                │ data/store.json (متجر + 84 منتج)
-```
-
-```
-basketwise-ai/
-├─ backend/            C++17: src/ (الخوارزميات والسيرفر) · tests/ · Makefile
-├─ frontend/           React + Vite: src/engine (اللعبة) · src/ui · src/pages
-├─ data/store.json     خريطة المتجر + الكتالوج (بيتولّد من tools/)
-├─ assets/             رسومات SVG (84 منتج، العناصر، المتسوّق 4 اتجاهات × 4 فريمات)
-├─ tools/              مولّد الكتالوج/المتجر ومولّد الرسومات
-├─ docs/               API.md · BACKEND.md · STYLE_GUIDE.md · samples/ · screenshots/
-└─ scripts/start.mjs   أمر التشغيل الواحد
-```
-
-* **المتجر:** 42×22 خلية، 84 منتج بأسماء **عربي وإنجليزي** وأسعار بالجنيه المصري في 9 أقسام (مخبوزات، ألبان، لحوم، مجمدات، مشروبات، خضار وفاكهة، بقالة، سناكس، منظفات). تكلفة الخلايا: عادي = 1، مدخل مزدحم = 2، طابور الكاشير = 3، أرضية مبلولة = 6.
-* **الـ API:** موثّق بالكامل في [`docs/API.md`](docs/API.md)، وفيه ردود حقيقية في [`docs/samples/`](docs/samples).
-
-## ✅ الاختبارات
+## Tests
 
 ```bash
-npm test      # أو: make -C backend test
+npm test
 ```
 
-39 اختبار (37,355 فحص) بتغطي: كل خوارزميات الترتيب مقابل `std::sort` كـ oracle (بيانات عشوائية/مرتبة/معكوسة/مكررة + إعادة تشغيل الـ trace)، الـ JSON، تطبيع العربي، البحث والأخطاء الإملائية، الـ hash table والـ trie وLevenshtein، BFS = أقل خطوات، Dijkstra = A\* على مئات الأزواج، صحة المسارات، Knapsack DP مقابل Brute force، Held–Karp مقابل كل التباديل، الـ planner من الأول للآخر، تقييم التحدّي، وسيرفر HTTP حقيقي على socket.
+39 tests with 37,355 checks. They cover every sorting algorithm against `std::sort` on random, sorted, reversed and duplicate data, the JSON parser, Arabic text normalisation, search and spelling correction, the hash table, trie and Levenshtein code, path correctness (BFS gives the fewest steps, Dijkstra and A* agree), knapsack against brute force, Held-Karp against all permutations, the planner end to end, and the HTTP server over a real socket.
 
-## 🎨 ملاحظة عن الرسومات
+## Project layout
 
-الصور كلها (المنتجات، الرفوف، العناصر، المتسوّق) **بنفس الأسلوب والكاميرا** (top-down بإضاءة من أعلى اليسار) حسب [`docs/STYLE_GUIDE.md`](docs/STYLE_GUIDE.md). أداة توليد الصور بالـ AI ماكانتش متاحة وقت البناء، فاتعملت بجودة عالية كـ **SVG مولَّد بالكود** (`npm run assets`، شوف `assets/_review/` للـ contact sheets). الأرضية والرفوف والتلاجات بتترسم على Canvas.
+```
+backend/    C++17 server and algorithms (src/), tests (tests/), Makefile
+frontend/   React and Vite app: src/engine (map and animation), src/ui, src/pages
+data/       store.json, the store map and the 84-product catalogue
+assets/     product photos, shelf and shopper sprites
+tools/      scripts that generate the catalogue and the store map
+scripts/    start script
+api/        Vercel function that runs the backend binary
+docs/       API and backend notes
+```
 
-## 🔧 لو حصلت مشكلة
+The store has 84 products in 9 categories, with Arabic and English names and prices in Egyptian pounds.
 
-* **"مقدرتش أوصل للـ backend"** → الـ C++ server مش شغّال. استخدم `npm start`، أو `npm run backend`.
-* **`make` / `g++` مش موجودين** → ثبّتهم (`sudo apt install build-essential` أو `xcode-select --install`).
-* **المنفذ مشغول** → `API_PORT=8090 npm start` (الواجهة بتتوصّل تلقائيًا).
+## Deployment
+
+The frontend is a static Vite build. The backend is a statically linked C++ binary, and `api/[...path].js` starts it inside a Vercel function and forwards `/api/*` requests to it. `vercel.json` sets the build command and includes the binary and `data/store.json` in the function.
+
+To rebuild the binary after changing the backend:
+
+```bash
+make -C backend build/basketwise-server CXXFLAGS="-O2 -std=c++17 -pthread -static"
+cp backend/build/basketwise-server api/bin/
+```
+
+## Screenshots
+
+| Setup | About page | Mobile |
+|---|---|---|
+| ![Setup](docs/screenshots/setup.jpg) | ![About](docs/screenshots/about.jpg) | ![Mobile](docs/screenshots/mobile.jpg) |

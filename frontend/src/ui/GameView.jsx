@@ -93,7 +93,10 @@ export default function GameView({ store, assets, active = true }) {
   }
 
   // ------------------------------------------------------------ AI mode
+  const scrollToMap = () => { try { document.querySelector('.game-layout')?.scrollTo({ top: 0, behavior: 'smooth' }); window.scrollTo({ top: 0, behavior: 'smooth' }); } catch { /* ignore */ } };
+
   const startAI = useCallback(async () => {
+    scrollToMap();
     setBusy(true); setError(''); setSummary(null); setCh(null);
     try {
       const p = await api.plan(planRequest(cfg));
@@ -113,6 +116,7 @@ export default function GameView({ store, assets, active = true }) {
 
   // ------------------------------------------------------------ challenge mode
   async function startChallenge(preset) {
+    scrollToMap();
     setBusy(true); setError(''); setSummary(null);
     try {
       const p = await api.plan({

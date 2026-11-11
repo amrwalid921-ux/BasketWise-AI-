@@ -7,10 +7,12 @@ const src = path.join(root, 'assets');
 const dst = path.join(root, 'frontend', 'public', 'assets');
 fs.rmSync(dst, { recursive: true, force: true });
 fs.mkdirSync(dst, { recursive: true });
+const SKIP = new Set(['scenes', 'people', 'models', 'textures/wall.jpg', 'textures/shelf.jpg', 'textures/ceiling.jpg']);
 let n = 0;
 (function copy(a, b) {
   for (const e of fs.readdirSync(a, { withFileTypes: true })) {
     if (e.name.startsWith('_')) continue; // skip _review
+    if (SKIP.has(path.relative(src, path.join(a, e.name)))) continue; // unused by the 2D game
     const pa = path.join(a, e.name), pb = path.join(b, e.name);
     if (e.isDirectory()) { fs.mkdirSync(pb, { recursive: true }); copy(pa, pb); }
     else {
