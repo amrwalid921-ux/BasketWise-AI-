@@ -12,10 +12,10 @@ function MiniMap({ store, leg, algo, active, onPick }) {
     const { w, h, cost } = store.grid;
     c.width = w * CELL; c.height = h * CELL;
     const ctx = c.getContext('2d');
-    ctx.fillStyle = '#f3e8d2'; ctx.fillRect(0, 0, c.width, c.height);
+    ctx.fillStyle = '#E9EDF2'; ctx.fillRect(0, 0, c.width, c.height);
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
       const v = cost[y].charCodeAt(x) - 48;
-      if (v === 0) { ctx.fillStyle = '#6a5a4a'; ctx.fillRect(x * CELL, y * CELL, CELL, CELL); }
+      if (v === 0) { ctx.fillStyle = '#5C6B8A'; ctx.fillRect(x * CELL, y * CELL, CELL, CELL); }
       else if (v > 1) { ctx.fillStyle = 'rgba(80,150,220,.35)'; ctx.fillRect(x * CELL, y * CELL, CELL, CELL); }
     }
     if (leg) {

@@ -344,5 +344,6 @@ img, canvas, svg { max-width: 100%; }
   .map-card .phase { order: 1; position: static; min-height: 34px; width: 100%; border: 0; border-top: 3px solid #111; border-radius: 0; padding: 4px 10px; font-size: 14px; }
   .map-card .ticker { order: 2; position: static; transform: none; max-width: 100%; border: 0; border-top: 3px solid #111; border-radius: 0; padding: 7px 10px; font-size: 13px; line-height: 1.5; pointer-events: auto; background: #fff; }
   .map-card .mini-compare { order: 3; position: static; inset: auto; max-width: 100%; border: 0; border-top: 3px solid #111; border-radius: 0; overflow-x: auto; }
-  .map-card .map-legend { order: 4; }
+  .map-card .map-legend { display: none; }
+  .canvas-frame { aspect-ratio: 4 / 3; }
 }

@@ -47,6 +47,7 @@ function drawFloor(ctx, store, assets) {
     // real porcelain photo, tiled; zones get a light tint on top
     const span = 6 * T;
     for (let y = 0; y < h * T; y += span) for (let x = 0; x < w * T; x += span) ctx.drawImage(assets.floor, x, y, span, span);
+    ctx.fillStyle = 'rgba(40,90,200,.09)'; ctx.fillRect(0, 0, w * T, h * T);
     for (let ty = 0; ty < h; ty += 2) for (let tx = 0; tx < w; tx += 2) {
       const z = zone(tx, ty);
       if (z === 'checkout') { ctx.fillStyle = 'rgba(120,220,200,.22)'; ctx.fillRect(tx * T, ty * T, 2 * T, 2 * T); }
@@ -110,15 +111,15 @@ function drawFloor(ctx, store, assets) {
 function drawWalls(ctx, store) {
   const { w, h } = store.grid;
   // top wall
-  ctx.fillStyle = vgrad(ctx, 0, T, [[0, '#2B2B2B'], [1, '#2B2B2B']]);
+  ctx.fillStyle = vgrad(ctx, 0, T, [[0, '#16254A'], [1, '#16254A']]);
   ctx.fillRect(0, 0, w * T, T);
   ctx.fillStyle = '#111111';
   ctx.fillRect(0, T - 5, w * T, 5);
-  ctx.fillStyle = '#2B2B2B';
+  ctx.fillStyle = '#16254A';
   ctx.fillRect(0, T - 5, w * T, 1.5);
   // side walls
   for (const sx of [0, w - 1]) {
-    ctx.fillStyle = hgrad(ctx, sx * T, (sx + 1) * T, sx === 0 ? [[0, '#2B2B2B'], [1, '#2B2B2B']] : [[0, '#2B2B2B'], [1, '#2B2B2B']]);
+    ctx.fillStyle = hgrad(ctx, sx * T, (sx + 1) * T, sx === 0 ? [[0, '#16254A'], [1, '#16254A']] : [[0, '#16254A'], [1, '#16254A']]);
     ctx.fillRect(sx * T, 0, T, h * T);
     ctx.fillStyle = 'rgba(17,17,17,.12)';
     for (let y = 0; y < h * 2; y++) ctx.fillRect(sx * T, y * (T / 2), T, 1);
@@ -127,7 +128,7 @@ function drawWalls(ctx, store) {
   }
   // bottom wall = storefront glass
   const by = (h - 1) * T;
-  ctx.fillStyle = vgrad(ctx, by, by + T, [[0, '#2B2B2B'], [1, '#2B2B2B']]);
+  ctx.fillStyle = vgrad(ctx, by, by + T, [[0, '#16254A'], [1, '#16254A']]);
   ctx.fillRect(0, by, w * T, T);
   for (let x = 1; x < w - 1; x++) {
     if (x >= 2 && x <= 4) continue; // entrance
@@ -139,7 +140,7 @@ function drawWalls(ctx, store) {
     ctx.fillStyle = 'rgba(255,255,255,.45)';
     ctx.beginPath(); ctx.moveTo(gx + 6, by + 8); ctx.lineTo(gx + 20, by + 8); ctx.lineTo(gx + 8, by + T - 8); ctx.lineTo(gx - 2, by + T - 8); ctx.closePath(); ctx.fill();
   }
-  ctx.fillStyle = '#2B2B2B';
+  ctx.fillStyle = '#16254A';
   ctx.fillRect(0, by, w * T, 6);
 }
 
@@ -238,7 +239,7 @@ function drawGondola(ctx, fx, store, prodAt) {
   const isIsland = fx.kind === 'island';
   const px = fx.x * T, py = fx.y * T, w = fx.w * T, h = 2 * T;
   const body = isIsland ? ['#7a8794', '#66727e'] : ['#c9d0d8', '#aab3bd'];
-  const tray = isIsland ? ['#a56f3d', '#80512a'] : ['#f6f3ec', '#e1ddd2'];
+  const tray = isIsland ? ['#e6edf8', '#c7d4ea'] : ['#f6f8fb', '#dfe5ee'];
   softShadow(ctx, px, py, w, h, 7);
   ctx.fillStyle = vgrad(ctx, py, py + h, [[0, body[0]], [1, body[1]]]);
   rr(ctx, px, py, w, h, 7); ctx.fill();
@@ -252,13 +253,13 @@ function drawGondola(ctx, fx, store, prodAt) {
       rr(ctx, cx0 + 3.5, cy0 + 3.5, T - 7, T - 7, 4); ctx.fill();
       ctx.strokeStyle = 'rgba(0,0,0,.16)'; ctx.lineWidth = 1; rr(ctx, cx0 + 3.5, cy0 + 3.5, T - 7, T - 7, 4); ctx.stroke();
       if (isIsland) { // crate slats
-        ctx.strokeStyle = 'rgba(40,20,5,.28)';
+        ctx.strokeStyle = 'rgba(23,72,200,.18)';
         for (let k = 1; k < 4; k++) { ctx.beginPath(); ctx.moveTo(cx0 + 5, cy0 + 3.5 + k * 10.5); ctx.lineTo(cx0 + T - 5, cy0 + 3.5 + k * 10.5); ctx.stroke(); }
       }
       // price strip on the aisle edge
       const side = r === 0 ? 'top' : 'bottom';
       const ty = r === 0 ? cy0 + 3.5 : cy0 + T - 3.5 - 12;
-      ctx.fillStyle = isIsland ? '#f4e6cc' : '#ffffff';
+      ctx.fillStyle = '#ffffff';
       rr(ctx, cx0 + 5, ty + 0.5, T - 10, 11, 3); ctx.fill();
       ctx.fillStyle = cat.color; ctx.globalAlpha = 0.9;
       ctx.fillRect(cx0 + 5, r === 0 ? ty + 0.5 : ty + 10.5, T - 10, 1.5); ctx.globalAlpha = 1;
@@ -267,12 +268,12 @@ function drawGondola(ctx, fx, store, prodAt) {
     }
   }
   // centre rail
-  ctx.fillStyle = vgrad(ctx, py + T - 3, py + T + 3, [[0, isIsland ? '#6b4423' : '#a9b0b6'], [1, isIsland ? '#4a2d14' : '#6a7279']]);
+  ctx.fillStyle = vgrad(ctx, py + T - 3, py + T + 3, [[0, isIsland ? '#7f8da3' : '#a9b0b6'], [1, isIsland ? '#55627a' : '#6a7279']]);
   ctx.fillRect(px + 2, py + T - 3, w - 4, 6);
   ctx.fillStyle = 'rgba(255,255,255,.5)'; ctx.fillRect(px + 2, py + T - 3, w - 4, 1);
   // end caps in category colour
   for (const ex of [px, px + w - 8]) {
-    ctx.fillStyle = vgrad(ctx, py, py + h, [[0, cat.color], [1, shade(cat.color, -0.3)]]);
+    ctx.fillStyle = vgrad(ctx, py, py + h, [[0, '#2F63DB'], [1, '#1748C8']]);
     rr(ctx, ex, py + 2, 8, h - 4, 4); ctx.fill();
   }
   ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(px + 6, py + 1.5); ctx.lineTo(px + w - 6, py + 1.5); ctx.stroke();
@@ -287,13 +288,15 @@ function shade(hex, amt) {
 }
 
 // -------------------------------------------------------------------------------- signs
-function signPlate(ctx, x, y, w, h, color, ar, en) {
+function signPlate(ctx, x, y, w, h, accent, ar, en) {
+  const color = '#1748C8';
   ctx.save();
-  ctx.shadowColor = 'rgba(30,20,10,.35)'; ctx.shadowBlur = 6; ctx.shadowOffsetX = 2; ctx.shadowOffsetY = 4;
+  ctx.shadowColor = 'rgba(10,20,60,.35)'; ctx.shadowBlur = 6; ctx.shadowOffsetX = 2; ctx.shadowOffsetY = 4;
   ctx.fillStyle = vgrad(ctx, y, y + h, [[0, shade(color, 0.18)], [1, shade(color, -0.22)]]);
   rr(ctx, x, y, w, h, 7); ctx.fill();
   ctx.restore();
   ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 1.4; rr(ctx, x + 2, y + 2, w - 4, h - 4, 5); ctx.stroke();
+  ctx.fillStyle = accent; ctx.fillRect(x + 10, y + h - 7, w - 20, 3);
   ctx.fillStyle = '#fff';
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 2; ctx.shadowOffsetY = 1;
@@ -391,11 +394,11 @@ export function buildStaticLayer(store, assets) {
     const bx = 8 * T, by = (store.grid.h - 1) * T + 8, bw = 8 * T, bh = T - 16;
     ctx.save();
     ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 3;
-    ctx.fillStyle = vgrad(ctx, by, by + bh, [[0, '#2d2a27'], [1, '#14110f']]);
+    ctx.fillStyle = vgrad(ctx, by, by + bh, [[0, '#2F63DB'], [1, '#1748C8']]);
     rr(ctx, bx, by, bw, bh, 9); ctx.fill();
     ctx.restore();
-    ctx.strokeStyle = '#ffb23e'; ctx.lineWidth = 1.6; rr(ctx, bx + 3, by + 3, bw - 6, bh - 6, 7); ctx.stroke();
-    ctx.fillStyle = '#ffd37a'; ctx.font = `800 17px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.strokeStyle = '#BFD4FF'; ctx.lineWidth = 1.6; rr(ctx, bx + 3, by + 3, bw - 6, bh - 6, 7); ctx.stroke();
+    ctx.fillStyle = '#ffffff'; ctx.font = `800 17px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText('BASKETWISE MARKET · أهلًا بيك', bx + bw / 2, by + bh / 2 + 1);
   }
   // vignette
