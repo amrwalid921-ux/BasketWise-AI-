@@ -46,7 +46,15 @@ export async function loadAssets(onProgress) {
   for (const dir of ['down', 'up', 'left', 'right']) {
     out.shopper[dir] = [];
     for (let f = 0; f < 4; f++) {
-      jobs.push(loadImg(`/assets/shopper/walk-${dir}-${f}.svg`).then((im) => { out.shopper[dir][f] = raster(im, 216, 216); tick(); }));
+      jobs.push(
+        fetch(`/assets/shopper/walk-${dir}-${f}.svg`).then((r) => r.text()).then((t) => {
+          const m = { '#25a59e': '#2F63DB', '#145f5a': '#12328f', '#277c75': '#1d4bb5', '#71c2b9': '#6f9bff',
+            '#d6403a': '#1F57E0', '#98332d': '#123a99', '#b03832': '#1a49c0', '#ab3731': '#1a49c0',
+            '#95332c': '#123a99', '#89302a': '#123a99', '#e2776f': '#7aa2ff', '#e1746b': '#7aa2ff' };
+          const s = t.replace(/#[0-9a-fA-F]{6}/g, (c) => m[c.toLowerCase()] || c);
+          return loadImg('data:image/svg+xml;charset=utf-8,' + encodeURIComponent(s));
+        }).then((im) => { out.shopper[dir][f] = raster(im, 216, 216); tick(); })
+      );
     }
   }
   jobs.push(loadImg('/assets/textures/floor.jpg').then((im) => { out.floor = im; }).catch(() => {}));

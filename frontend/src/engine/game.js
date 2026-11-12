@@ -374,11 +374,13 @@ export class Game {
       const cx = p.shelf.x * T + T / 2, cy = p.shelf.y * T + T / 2;
       const dir = this.aisleDir(p);
       if (p.side === 'wall') {
-        ctx.drawImage(img, cx - 17, cy - T - 17 - 1, 34, 34); // stock row behind
+        ctx.globalAlpha = 0.8; ctx.drawImage(img, cx - 13, cy - T - 22, 26, 26);
+        ctx.globalAlpha = 1; ctx.drawImage(img, cx - 20, cy - T - 18, 40, 40); // stock row behind
       } else {
-        ctx.globalAlpha = 0.92;
-        ctx.drawImage(img, cx - 15, cy - dir * 9 - 15, 30, 30);
-        ctx.globalAlpha = 1;
+        ctx.fillStyle = 'rgba(10,25,70,.16)';
+        ctx.beginPath(); ctx.ellipse(cx, cy - dir * 9 + 15, 15, 3.5, 0, 0, 7); ctx.fill();
+        ctx.globalAlpha = 0.7; ctx.drawImage(img, cx - 14, cy - dir * 9 - 20, 28, 28);
+        ctx.globalAlpha = 1; ctx.drawImage(img, cx - 18, cy - dir * 9 - 17, 36, 36);
       }
       const vis = 1 - easeOut(st.pick);
       if (vis > 0.02) {
@@ -511,6 +513,8 @@ export class Game {
     const S = this.spriteSize();
     const img = this.assets.shopper[sh.dir][sh.frame];
     const cx = (sh.x + 0.5) * T, cy = (sh.y + 0.5) * T + sh.bob;
+    ctx.fillStyle = 'rgba(10,25,70,.22)';
+    ctx.beginPath(); ctx.ellipse(cx, cy + S * 0.36, S * 0.3, S * 0.07, 0, 0, 7); ctx.fill();
     ctx.drawImage(img, cx - S / 2, cy - S / 2, S, S);
     // cart contents
     const m = this.assets.meta.dirs[sh.dir].basket, k = S / this.assets.meta.size;

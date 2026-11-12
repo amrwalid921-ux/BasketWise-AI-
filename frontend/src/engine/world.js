@@ -47,7 +47,8 @@ function drawFloor(ctx, store, assets) {
     // real porcelain photo, tiled; zones get a light tint on top
     const span = 6 * T;
     for (let y = 0; y < h * T; y += span) for (let x = 0; x < w * T; x += span) ctx.drawImage(assets.floor, x, y, span, span);
-    ctx.fillStyle = 'rgba(40,90,200,.09)'; ctx.fillRect(0, 0, w * T, h * T);
+    ctx.fillStyle = 'rgba(40,90,200,.07)'; ctx.fillRect(0, 0, w * T, h * T);
+    ctx.fillStyle = 'rgba(255,255,255,.22)'; ctx.fillRect(0, 0, w * T, h * T);
     for (let ty = 0; ty < h; ty += 2) for (let tx = 0; tx < w; tx += 2) {
       const z = zone(tx, ty);
       if (z === 'checkout') { ctx.fillStyle = 'rgba(120,220,200,.22)'; ctx.fillRect(tx * T, ty * T, 2 * T, 2 * T); }
@@ -372,6 +373,18 @@ export function buildStaticLayer(store, assets) {
 
   drawFloor(ctx, store, assets);
   drawWalls(ctx, store);
+  // wall contact shadows + light baseboard so the walls feel like they sit on the floor
+  {
+    const W = w_ => w_;
+    const g1 = ctx.createLinearGradient(0, T, 0, T + 26); g1.addColorStop(0, 'rgba(10,25,70,.30)'); g1.addColorStop(1, 'rgba(10,25,70,0)');
+    ctx.fillStyle = g1; ctx.fillRect(T, T, (store.grid.w - 2) * T, 26);
+    const g2 = ctx.createLinearGradient(T, 0, T + 22, 0); g2.addColorStop(0, 'rgba(10,25,70,.26)'); g2.addColorStop(1, 'rgba(10,25,70,0)');
+    ctx.fillStyle = g2; ctx.fillRect(T, T, 22, (store.grid.h - 2) * T);
+    const x2 = (store.grid.w - 1) * T, g3 = ctx.createLinearGradient(x2, 0, x2 - 22, 0); g3.addColorStop(0, 'rgba(10,25,70,.26)'); g3.addColorStop(1, 'rgba(10,25,70,0)');
+    ctx.fillStyle = g3; ctx.fillRect(x2 - 22, T, 22, (store.grid.h - 2) * T);
+    ctx.fillStyle = '#5B8CFF'; ctx.fillRect(T, T, (store.grid.w - 2) * T, 3);
+    void W;
+  }
 
   // zone decorations drawn under fixtures
   for (const d of store.deco) if (['wet-floor', 'queue-zone', 'crowd-zone', 'doormat'].includes(d.type)) drawDeco(ctx, d, assets);
