@@ -6,6 +6,8 @@ import SetupPanel, { PRESETS } from './SetupPanel.jsx';
 import CartPanel from './CartPanel.jsx';
 import ChallengePanel from './ChallengePanel.jsx';
 import MiniAlgoCompare from './MiniAlgoCompare.jsx';
+import BudgetAlert from './BudgetAlert.jsx';
+import { similarCheaper } from './budget.js';
 import SortOverlay from './SortOverlay.jsx';
 import ProductSearchBox, { ProdIcon } from './ProductSearchBox.jsx';
 import { BadgeCheck, CircleDollarSign, Footprints, ListOrdered, Map as MapIcon, MapPin, Microscope, Pause, Play, Radar, ReceiptText, RefreshCw, Search, ShoppingCart, SlidersHorizontal, Star, Trophy, Video } from 'lucide-react';
@@ -37,6 +39,7 @@ export default function GameView({ store, assets, active = true }) {
   const [showMini, setShowMini] = useState(true);
   const [summary, setSummary] = useState(null);
   const [ch, setCh] = useState(null);
+  const [budgetAlert, setBudgetAlert] = useState(null);
   const chRef = useRef(null);
   chRef.current = ch;
   const planScores = useMemo(() => (plan ? new Map(plan.scores.map((s) => [s.id, s.score])) : null), [plan]);
@@ -76,6 +79,8 @@ export default function GameView({ store, assets, active = true }) {
       const spent = picks.reduce((s, x) => s + byId.get(x).price, 0);
       if (!c.picks.includes(id) && spent > c.preset.budget) {
         g.floater(`مفيش ميزانية! (${p.price} ج)`, (p.shelf.x + 0.5) * 48, (p.shelf.y) * 48, '#ff7b6b', 15);
+        const remaining = c.preset.budget - c.picks.reduce((s0, x) => s0 + byId.get(x).price, 0);
+        setBudgetAlert({ product: p, remaining, over: p.price - remaining, alts: similarCheaper(p, store.products, { exclude: new Set(c.picks), maxPrice: remaining }) });
         return;
       }
       setCh({ ...c, picks }); applyPicks(picks, c.preset);
@@ -83,6 +88,12 @@ export default function GameView({ store, assets, active = true }) {
       g.focusProduct(id);
     }
   };
+  function pickAlt(a) {
+    const c = chRef.current; setBudgetAlert(null);
+    if (!c || c.stage !== 'pick' || c.picks.includes(a.id)) return;
+    const picks = [...c.picks, a.id];
+    setCh({ ...c, picks }); applyPicks(picks, c.preset);
+  }
   function applyPicks(picks, preset) {
     const g = gameRef.current;
     g.setMarks(picks, preset.mustHave);
@@ -160,7 +171,7 @@ export default function GameView({ store, assets, active = true }) {
       setCh(nc); chRef.current = nc;
     } catch (e) { setError(String(e.message || e)); }
   }
-  function quitChallenge() { setCh(null); chRef.current = null; gameRef.current.reset(); setTab('setup'); }
+  function quitChallenge() { setBudgetAlert(null); setCh(null); chRef.current = null; gameRef.current.reset(); setTab('setup'); }
   function playOptimal() {
     const c = chRef.current;
     setPlan(c.optimalPlan); setTab('cart');
@@ -225,7 +236,7 @@ export default function GameView({ store, assets, active = true }) {
         </div>
 
         <div className="map-card">
-          <div className={'canvas-frame'}>
+          <div className={'canvas-frame cam-' + camMode}>
             <canvas ref={canvasRef} />
           </div>
           <div className="map-legend" aria-label="ألوان أقسام المتجر">
@@ -290,6 +301,7 @@ export default function GameView({ store, assets, active = true }) {
             onShowTop={(ids) => { setShowSort(false); gameRef.current.highlightIds(ids, { dimOthers: true }); }} />
         )}
       </section>
+      <BudgetAlert alert={budgetAlert} onPickAlt={pickAlt} onClose={() => setBudgetAlert(null)} />
     </div>
   );
 }

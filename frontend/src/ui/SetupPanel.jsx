@@ -1,6 +1,8 @@
 import React, { memo, useState } from 'react';
+import { AltList } from './BudgetAlert.jsx';
+import { similarCheaper } from './budget.js';
 import ProductSearchBox, { ProdIcon } from './ProductSearchBox.jsx';
-import { Ban, Heart, Plus, ShoppingCart, Star, Tag, ThumbsDown, ThumbsUp, Wallet, X } from 'lucide-react';
+import { TriangleAlert, Ban, Heart, Plus, ShoppingCart, Star, Tag, ThumbsDown, ThumbsUp, Wallet, X } from 'lucide-react';
 
 const TAG_AR = {
   staple: 'أساسيات', healthy: 'صحي', sweet: 'حلو', protein: 'بروتين', budget: 'اقتصادي', premium: 'فاخر',
@@ -27,6 +29,18 @@ function SetupPanel({ store, byId, cfg, setCfg, onStart, busy, error }) {
     if (s === 0) liked.push(t); else if (s === 1) disliked.push(t);
     set({ liked, disliked });
   };
+
+  const mustItems = cfg.mustHave.map((id) => byId.get(id)).filter(Boolean);
+  const mustTotal = mustItems.reduce((t, p) => t + p.price, 0);
+  const over = mustTotal - cfg.budget;
+  const worst = over > 0 ? [...mustItems].sort((a, b) => b.price - a.price)[0] : null;
+  let alts = [];
+  if (worst) {
+    const ex = new Set(cfg.mustHave);
+    alts = similarCheaper(worst, store.products, { exclude: ex, maxPrice: worst.price - over, limit: 3 });
+    if (!alts.length) alts = similarCheaper(worst, store.products, { exclude: ex, limit: 3 });
+  }
+  const swap = (a) => set({ mustHave: cfg.mustHave.map((id) => (id === worst.id ? a.id : id)) });
 
   return (
     <div className="panel-body">
@@ -98,6 +112,13 @@ function SetupPanel({ store, byId, cfg, setCfg, onStart, busy, error }) {
           })}
           {cfg.mustHave.length === 0 && <span className="dim">مفيش — الـ AI هيختار براحته</span>}
         </div>
+        {worst && (
+          <div className="note warn over-budget" role="alert">
+            <b><TriangleAlert size={17} aria-hidden="true" /> تخطّيت الميزانية</b>
+            <span>اللي اخترته ({mustTotal} ج) أكتر من ميزانيتك ({cfg.budget} ج) بـ {over} ج. ارفع الميزانية أو شيل منتج، أو بدّل <b>{worst.ar}</b> ببديل مشابه وأرخص:</span>
+            {alts.length > 0 ? <AltList alts={alts} onPick={swap} label="بدّل" /> : <span className="dim">مفيش بديل أرخص في نفس القسم.</span>}
+          </div>
+        )}
       </section>
 
       <button className="linkbtn" onClick={() => setAdv(!adv)}>{adv ? '▾' : '▸'} اختيار الخوارزميات</button>

@@ -345,5 +345,20 @@ img, canvas, svg { max-width: 100%; }
   .map-card .ticker { order: 2; position: static; transform: none; max-width: 100%; border: 0; border-top: 3px solid #111; border-radius: 0; padding: 7px 10px; font-size: 13px; line-height: 1.5; pointer-events: auto; background: #fff; }
   .map-card .mini-compare { order: 3; position: static; inset: auto; max-width: 100%; border: 0; border-top: 3px solid #111; border-radius: 0; overflow-x: auto; }
   .map-card .map-legend { display: none; }
-  .canvas-frame { aspect-ratio: 4 / 3; }
+  .canvas-frame.cam-follow { aspect-ratio: 4 / 3; }
 }
+
+/* budget warning + cheaper alternatives */
+.over-budget { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; line-height: 1.6; }
+.alt-list { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.alt-list li { display: flex; align-items: center; gap: 8px; background: #fff; border: 2px solid var(--ink); border-radius: 16px; padding: 6px 10px; }
+.alt-name { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.alt-name small { opacity: .7; }
+.alt-price { font-weight: 900; white-space: nowrap; }
+.alt-list .btn { min-height: 38px; padding: 4px 12px; }
+.budget-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(8, 20, 60, .55); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.budget-alert { position: relative; width: min(440px, 100%); max-height: 86vh; overflow-y: auto; background: var(--surface); border: var(--stroke); border-radius: 26px; box-shadow: 8px 8px 0 var(--ink); padding: 20px 20px 14px; display: flex; flex-direction: column; gap: 10px; }
+.budget-alert h3 { margin: 0; display: flex; align-items: center; gap: 8px; }
+.budget-alert h4 { margin: 6px 0 0; }
+.budget-alert p { margin: 0; line-height: 1.7; }
+.ba-close { position: absolute; inset-block-start: 12px; inset-inline-end: 12px; width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--ink); background: #fff; cursor: pointer; display: grid; place-items: center; }
